@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
+import STORE from '../dummy.store';
 
 class Course extends Component {
     static contextType = CourseContext;
-    
+
     render () {
         let { courseId, name, rating, holes, zip } = this.props
         return (

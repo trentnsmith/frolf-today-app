@@ -13,7 +13,9 @@ class App extends Component {
     this.state = {
       searchZip: '',
       filterOption: 'All',
-      courses: STORE
+      courses: [
+        STORE
+      ]
     };
   }
 
@@ -24,7 +26,8 @@ class App extends Component {
   }
   render() {
     let value = {
-      courses: this.state.courses
+      courses: this.state.courses,
+      updateSearchZip: this.updateSearchZip
     }
     return (
       <CourseContext.Provider value={value}>
@@ -35,7 +38,7 @@ class App extends Component {
             filterOption={this.state.filterOption}
             handleUpdate={zip=>this.updateSearchZip(zip)}/>
           <ResultsList
-            courses={this.props.files}
+            courses={this.value}
             searchZip={this.state.searchZip}
             filterOption={this.state.filterOption}/>  
         </main>
