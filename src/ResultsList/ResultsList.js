@@ -38,7 +38,7 @@ class ResultsList extends Component {
                   return(
                         <div className="ResultsList">
                             <Course
-                                name={this.context.course.name}
+                                name={course.name}
                                 courseId={course.courseId}
                                 rating={course.rating}
                                 holes={course.holes}
