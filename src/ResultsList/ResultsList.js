@@ -10,25 +10,35 @@ class ResultsList extends Component {
             .filter(file => file.name.includes(searchZip)
                 && (filterOption === 'All' || file.status === filterOption))
             .map((file, key) => <Course {...file} key={key} />)
-*/
-    render () {
-        let filteredCourses = this.context.courses
-        if (this.props.courseId) {
-            filteredCourses = filteredCourses.filter((course) => {
+
+    
+        //let filteredCourses = this.context.courses
+       
+        if(!this.props.courseId) return null;
+        console.log(courseId)
+        let courses = this.context.courses
+        let filteredCourses = courses.filter((course) => {
+            return course.courseId === parseInt(this.props.courseId)
+        })
+        console.log(filteredCourses)
+       /* if (this.props.courseId) { 
+            let newfilteredCourses = filteredCourses.filter((course) => {
                 return course.courseId === parseInt(this.props.courseId)
             })
-        }      
+        }
+        console.log('this is the new filtered courses', newfilteredCourses)   
+        */   
+       render () {    
             return (
             /*<div className="ResultsList">
                 {list}
             </div>
            */
           <div>
-              {filteredCourses.map((course) => {
                   return(
                         <div className="ResultsList">
                             <Course
-                                name={course.name}
+                                name={this.context.course.name}
                                 courseId={course.courseId}
                                 rating={course.rating}
                                 holes={course.holes}
@@ -36,7 +46,6 @@ class ResultsList extends Component {
                             />
                         </div>      
                   )
-              })}
           </div> 
         );
     }

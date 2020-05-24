@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import CourseContext from '../CourseContext';
-import STORE from '../dummy.store';
+import COURSES from '../courses';
 import Nav from '../Nav/Nav';
 import SearchForm from '../SearchForm/SearchForm';
 import ResultsList from '../ResultsList/ResultsList';
@@ -14,7 +14,7 @@ class App extends Component {
       searchZip: '',
       filterOption: 'All',
       courses: [
-        STORE
+        COURSES
       ]
     };
   }
@@ -33,14 +33,17 @@ class App extends Component {
       <CourseContext.Provider value={value}>
         <main className='App'>
           <Nav />
-          <SearchForm
-            searchZip={this.state.searchZip}
-            filterOption={this.state.filterOption}
-            handleUpdate={zip=>this.updateSearchZip(zip)}/>
-          <ResultsList
-            courses={this.value}
-            searchZip={this.state.searchZip}
-            filterOption={this.state.filterOption}/>  
+          <BrowserRouter>
+            <SearchForm
+              searchZip={this.state.searchZip}
+              filterOption={this.state.filterOption}
+              handleUpdate={zip=>this.updateSearchZip(zip)}/>
+            <ResultsList
+              courses={this.value}
+              searchZip={this.state.searchZip}
+              filterOption={this.state.filterOption}/>
+            <Route path='/course/:courseId' component={CourseDetailPage} />
+          </BrowserRouter>    
         </main>
       </CourseContext.Provider>
     );
