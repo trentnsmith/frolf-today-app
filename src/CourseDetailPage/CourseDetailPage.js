@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
+import ReviewsList from '../ReviewsList/ReviewsList';
+import courses from '../courses';
+import Course from '../Course/Course';
 
 class CourseDetailPage extends Component {
     render () {
-        let { name, rating, holes, description } = this.props
+        console.log(this.props.match.params)
+        let course = this.props.courses.filter(course => {
+            return course.courseId == this.props.match.params.courseId
+        })
+        console.log(course)
+        let { name, rating, holes, description } = course[0]
         return (
             <div>
                 <div className="Detail">
-                    <div className="Detail__title">{name}</div>
-                    <span className="Detail__rating">{rating}</span>
-                    <span className="Detail__holes">{holes}</span>
+                    <h2 className="Detail__title">{name}</h2>
+                    <span className="Detail__rating">
+                        Average Rating: {rating}
+                    </span>
+                    <span className="Detail__holes">
+                        Number of Holes: {holes}
+                    </span>
                     <div className="Detail__description">{description}</div>
                 </div>
                 <div className="goback">
@@ -21,6 +33,10 @@ class CourseDetailPage extends Component {
                         New Search
                     </Link>
                 </div>
+                <div className="reviews__list">
+                    <ReviewsList />
+                </div>
+
             </div>    
         );
     }

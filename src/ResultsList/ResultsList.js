@@ -29,24 +29,23 @@ class ResultsList extends Component {
         console.log('this is the new filtered courses', newfilteredCourses)   
         */   
        render () {    
-            return (
-            /*<div className="ResultsList">
-                {list}
-            </div>
-           */
-          <div>
-                  return(
-                        <div className="ResultsList">
-                            <Course
-                                name={course.name}
-                                courseId={course.courseId}
-                                rating={course.rating}
-                                holes={course.holes}
-                                zip={course.zip}
-                            />
-                        </div>      
-                  )
-          </div> 
+        const { courses } = this.context;
+
+        return (
+            <div className="ResultsList">
+                {courses.map(course => {
+                    return (
+                    <Course
+                        key={course.id}
+                        name={course.name}
+                        courseId={course.courseId}
+                        rating={course.rating}
+                        holes={course.holes}
+                        zip={course.zip}
+                />
+                );
+            })}    
+            </div>      
         );
     }
 }

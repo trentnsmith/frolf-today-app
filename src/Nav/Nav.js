@@ -4,9 +4,9 @@ import './Nav.css';
 class Nav extends Component {
     render () {
         return (
-            <div className="Nav">
+            <h1 className="Nav">
                 Frolf Today
-            </div>
+            </h1>
         );
     }
 }

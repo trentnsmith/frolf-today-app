@@ -3,9 +3,9 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import CourseContext from '../CourseContext';
 import COURSES from '../courses';
 import Nav from '../Nav/Nav';
-import SearchForm from '../SearchForm/SearchForm';
-import ResultsList from '../ResultsList/ResultsList';
 import CourseDetailPage from '../CourseDetailPage/CourseDetailPage';
+import MainPage from '../MainPage/MainPage';
+//import AddReview from '../AddReview/AddReview';
 
 class App extends Component {
   constructor(props) {
@@ -13,9 +13,7 @@ class App extends Component {
     this.state = {
       searchZip: '',
       filterOption: 'All',
-      courses: [
-        COURSES
-      ]
+      courses: COURSES
     };
   }
 
@@ -34,15 +32,20 @@ class App extends Component {
         <main className='App'>
           <Nav />
           <BrowserRouter>
-            <SearchForm
+            <Route exact path ='/' render={() => {
+              return <MainPage  
               searchZip={this.state.searchZip}
               filterOption={this.state.filterOption}
-              handleUpdate={zip=>this.updateSearchZip(zip)}/>
-            <ResultsList
-              courses={this.value}
-              searchZip={this.state.searchZip}
-              filterOption={this.state.filterOption}/>
-            <Route path='/course/:courseId' component={CourseDetailPage} />
+              updateSearchZip={this.updateSearchZip}
+              courses={this.state.courses}
+              />
+            }} />
+            <Route path='/course/:courseId' render={(renderProp) => {
+              return <CourseDetailPage 
+              courses={this.state.courses}
+              {...renderProp}
+              />
+            }} />
           </BrowserRouter>    
         </main>
       </CourseContext.Provider>

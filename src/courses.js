@@ -1,5 +1,4 @@
-export default {
-    "courses" : [
+export default [
     {
         "courseId": 1, 
         "name": "seymour smith", 
@@ -33,4 +32,3 @@ export default {
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pulvinar ac nisl in bibendum. Vivamus vitae tincidunt ex. Nunc lacinia leo vel dolor ornare laoreet."
     }
 ]
-}
