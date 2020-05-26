@@ -20,6 +20,7 @@ class MainPage extends Component {
                 filterOption={this.props.filterOption}/>
             </div>
             <section>
+                
                <Map />
             </section> 
             </div>   
