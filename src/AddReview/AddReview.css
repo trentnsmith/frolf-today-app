@@ -1,0 +1,20 @@
+.create-review {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(167, 137, 20);
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.section {
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+
+.review-text {
+    resize: none;
+    width: 80%;
+}
+

@@ -1,0 +1,18 @@
+.Detail {
+    background-color: rgb(192, 196, 192);
+    margin-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.goback {
+    margin-bottom: 25px;
+}
+
+.links:hover {
+    transform: scale(0.9);
+}
+
+.goback__link {
+    text-decoration: none;
+}

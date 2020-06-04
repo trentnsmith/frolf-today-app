@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CourseContext from '../CourseContext';
 import Course from '../Course/Course';
+import './ResultsList.css';
 
 class ResultsList extends Component {
     static contextType = CourseContext;

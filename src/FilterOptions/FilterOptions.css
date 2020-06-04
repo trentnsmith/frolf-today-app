@@ -1,0 +1,9 @@
+input {
+    border: none;
+    border-bottom: 2px solid rgb(9, 12, 12);
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+}

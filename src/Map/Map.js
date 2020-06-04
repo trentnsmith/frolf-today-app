@@ -22,6 +22,10 @@ function DisplayMap() {
                         onClick={() => {
                             setSelectedCourse(course);
                         }}
+                        icon={{
+                            url: '/images/map_icon.jpg',
+                            scaledSize: new window.google.maps.Size(30, 30)
+                        }}
                     />
               ))}
               {selectedCourse &&  (

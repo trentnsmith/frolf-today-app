@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
-import COURSES from '../courses';
+//import COURSES from '../courses';
+import './Course.css'
 
 class Course extends Component {
     static contextType = CourseContext;
@@ -17,15 +18,15 @@ class Course extends Component {
                         </Link>
                     </h2>
                     <div className="Course__rating">
-                        Rating: 
+                        Rating: &nbsp;
                         {rating}
                     </div>
                     <div className="Course__holes">
-                        Number of Holes: 
+                        Number of Holes: &nbsp;
                         {holes}
                     </div>
-                    <div className="course__zip">
-                        Zip Code:
+                    <div className="Course__zip">
+                        Zip Code: &nbsp;
                         {zip}
                     </div>
                 </div>

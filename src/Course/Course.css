@@ -1,0 +1,26 @@
+.Course {
+    border-style: ridge;
+    border-radius: 10px;
+    background-color: rgb(164, 168, 168);
+    margin: 2px 2px;
+}
+
+.Course__content {
+    margin-bottom: 5px;
+}
+
+.Course__name:hover {
+    transform: scale(1.1);
+}
+
+.Course__rating {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Course__holes {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.Course__zip {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
