@@ -4,45 +4,27 @@ import Course from '../Course/Course';
 import './ResultsList.css';
 
 class ResultsList extends Component {
-    static contextType = CourseContext;
-   /* render() {
-        const { searchZip, filterOption } = this.props;
-        const list = this.props.files
-            .filter(file => file.name.includes(searchZip)
-                && (filterOption === 'All' || file.status === filterOption))
-            .map((file, key) => <Course {...file} key={key} />)
-
     
-        //let filteredCourses = this.context.courses
-       
-        if(!this.props.courseId) return null;
-        console.log(courseId)
-        let courses = this.context.courses
-        let filteredCourses = courses.filter((course) => {
-            return course.courseId === parseInt(this.props.courseId)
-        })
-        console.log(filteredCourses)
-       /* if (this.props.courseId) { 
-            let newfilteredCourses = filteredCourses.filter((course) => {
+    static contextType = CourseContext;
+                
+       render () {    
+         let filteredCourses = this.context.courses;
+         if (this.props.courseId) { 
+            let filteredCourses = filteredCourses.filter((course) => {
                 return course.courseId === parseInt(this.props.courseId)
             })
         }
-        console.log('this is the new filtered courses', newfilteredCourses)   
-        */   
-       render () {    
-         let filteredCourses = this.context.courses;
-
+        
         return (
             <div className="ResultsList">
-                {courses.map(course => {
+                {filteredCourses.map(course => {
                     return (
                     <Course
-                        key={course.id}
-                        name={course.name}
-                        courseId={course.courseId}
-                        rating={course.rating}
+                        key={course.course_id}
+                        name={course.course_name}
+                        courseId={course.course_id}
                         holes={course.holes}
-                        zip={course.zip}
+                        zip={course.postal_code}
                 />
                 );
             })}    

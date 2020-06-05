@@ -13,11 +13,12 @@ class MainPage extends Component {
             <div>
                 <div className="mainpage" >
                 <SearchForm
+                    setCourses={this.props.setCourses}
                     searchZip={this.props.searchZip}
                     filterOption={this.props.filterOption}
-                    handleUpdate={zip=>this.props.updateSearchZip(zip)}/>
+                    handleUpdate={this.props.updateSearchZip}/>
                 <ResultsList
-                
+                    
                     //courseId={this.props.match.params.courseId}
                     courses={this.props.courses}    
                     searchZip={this.props.searchZip}

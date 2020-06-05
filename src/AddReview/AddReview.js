@@ -64,9 +64,7 @@ class AddReview extends Component{
                         />
                     </div>
                     <div className="section">
-                        <label>
-                            Rating:
-                        </label>
+                       
                         &nbsp; &nbsp;
                         <select required>
                             <option value="1">5</option>

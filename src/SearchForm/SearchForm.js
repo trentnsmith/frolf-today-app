@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FilterOptions from '../FilterOptions/FilterOptions';
+
 import SearchInput from '../SearchInput/SearchInput';
 
 class SearchForm extends Component {
@@ -11,9 +11,10 @@ class SearchForm extends Component {
                 </div>
                 <div className="SearchForm__controls">
                     <SearchInput 
+                    setCourses={this.props.setCourses}
                     searchZip={this.props.searchZip}
                     handleUpdate={this.props.handleUpdate}/>
-                    <FilterOptions filterOption={this.props.filterOption}/>
+                    
                 </div>
             </div>
         );

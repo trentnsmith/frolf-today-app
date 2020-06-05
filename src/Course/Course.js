@@ -17,10 +17,6 @@ class Course extends Component {
                             {name}
                         </Link>
                     </h2>
-                    <div className="Course__rating">
-                        Rating: &nbsp;
-                        {rating}
-                    </div>
                     <div className="Course__holes">
                         Number of Holes: &nbsp;
                         {holes}

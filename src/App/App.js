@@ -15,6 +15,13 @@ class App extends Component {
       courses: []
     };
 
+  setCourses = (courses) => {
+    console.log('these are the courses', courses)
+    this.setState({
+      courses
+    })
+  }
+
   updateSearchZip = (zip) => {
     this.setState({
       searchZip: zip
@@ -23,6 +30,7 @@ class App extends Component {
   render() {
     let value = {
       courses: this.state.courses,
+      setCourses: this.setCourses,
       updateSearchZip: this.updateSearchZip
     }
     return (
@@ -32,18 +40,14 @@ class App extends Component {
           <BrowserRouter>
             <Route exact path ='/' render={() => 
                       <MainPage 
+                        setCourses={this.setCourses}
                         searchZip={this.state.searchZip}
                         filterOption={this.state.filterOption}
                         updateSearchZip={this.updateSearchZip}
                         courses={this.state.courses}
                       />
             } />
-            <Route path='/course/:courseId' render={(renderProp) => 
-                      <CourseDetailPage 
-                        courses={this.state.courses}
-                        {...renderProp}
-                      />
-            } />
+            <Route path='/course/:courseId' component={CourseDetailPage} />
           </BrowserRouter>    
         </main>
       </CourseContext.Provider>

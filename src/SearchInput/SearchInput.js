@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import config from '../config';
+//import courses from '../courses';
+import CourseContext from '../CourseContext';
+import './SearchInput.css'
 
 class SearchInput extends Component {
-    constructor(props) {
+    static contextType = CourseContext;
+
+    /*constructor(props) {
         super(props);
         this.state = {
             courses: null
         }
-    }
+    }*/
 
     handleZipSubmit = (e) => {
         e.preventDefault();
@@ -18,9 +23,7 @@ class SearchInput extends Component {
         })
         
         .then(data => {
-            this.setState({
-                data
-            })
+            this.props.setCourses(data.courses)
             console.log('this is data', data)
         })
         .catch(console.error)
@@ -28,6 +31,8 @@ class SearchInput extends Component {
     }
 
     render () {
+        
+        
         return (
             <div className="SearchInput">
                 <form className="search-form" onSubmit={this.handleZipSubmit}>
@@ -40,7 +45,10 @@ class SearchInput extends Component {
                     type="submit" 
                     value="Search"
                 />
-                </form>         
+                </form>     
+                <section>
+                    
+                </section>    
             </div>
         );
     }
