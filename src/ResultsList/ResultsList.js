@@ -30,7 +30,7 @@ class ResultsList extends Component {
         console.log('this is the new filtered courses', newfilteredCourses)   
         */   
        render () {    
-        const { courses } = this.context;
+         let filteredCourses = this.context.courses;
 
         return (
             <div className="ResultsList">

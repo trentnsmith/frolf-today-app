@@ -8,6 +8,7 @@ import './MainPage.css'
 class MainPage extends Component {
     
     render () {
+        //console.log(this.props.match.params)
         return (
             <div>
                 <div className="mainpage" >
@@ -16,7 +17,8 @@ class MainPage extends Component {
                     filterOption={this.props.filterOption}
                     handleUpdate={zip=>this.props.updateSearchZip(zip)}/>
                 <ResultsList
-                    courseId={this.props.match.params.courseId}
+                
+                    //courseId={this.props.match.params.courseId}
                     courses={this.props.courses}    
                     searchZip={this.props.searchZip}
                     filterOption={this.props.filterOption}/>

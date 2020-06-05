@@ -30,20 +30,20 @@ class App extends Component {
         <main className='App'>
           <Nav />
           <BrowserRouter>
-            <Route exact path ='/' render={() => {
-              return <MainPage  
+            <Route exact path ='/' render={() => 
+                      <MainPage 
                         searchZip={this.state.searchZip}
                         filterOption={this.state.filterOption}
                         updateSearchZip={this.updateSearchZip}
                         courses={this.state.courses}
                       />
-            }} />
-            <Route path='/course/:courseId' render={(renderProp) => {
-              return <CourseDetailPage 
+            } />
+            <Route path='/course/:courseId' render={(renderProp) => 
+                      <CourseDetailPage 
                         courses={this.state.courses}
                         {...renderProp}
                       />
-            }} />
+            } />
           </BrowserRouter>    
         </main>
       </CourseContext.Provider>

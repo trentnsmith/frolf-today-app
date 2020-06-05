@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import config from '../config';
 
 class SearchInput extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            courses: null
+        }
+    }
 
     handleZipSubmit = (e) => {
         e.preventDefault();
@@ -10,7 +16,15 @@ class SearchInput extends Component {
             console.log('this is the response', response)
             return response.json()
         })
+        
+        .then(data => {
+            this.setState({
+                data
+            })
+            console.log('this is data', data)
+        })
         .catch(console.error)
+        
     }
 
     render () {
