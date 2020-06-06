@@ -63,17 +63,7 @@ class AddReview extends Component{
                             required 
                         />
                     </div>
-                    <div className="section">
-                       
-                        &nbsp; &nbsp;
-                        <select required>
-                            <option value="1">5</option>
-                            <option value="2">4</option>
-                            <option value="3">3</option>
-                            <option value="4">2</option>
-                            <option value="5">1</option>
-                        </select>
-                    </div>
+                    
                     <div className="review_section">
                         <textarea className="review-text" placeholder="Your Thoughts..." required />
                     </div>
