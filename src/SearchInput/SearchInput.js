@@ -23,8 +23,9 @@ class SearchInput extends Component {
         })
         
         .then(data => {
+
             this.props.setCourses(data.courses)
-            console.log('this is data', data)
+            console.log('this is data', data.courses)
         })
         .catch(console.error)
         

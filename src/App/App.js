@@ -47,7 +47,14 @@ class App extends Component {
                         courses={this.state.courses}
                       />
             } />
-            <Route path='/course/:courseId' component={CourseDetailPage} />
+            <Route path='/course/:courseId' render={(renderProps)=> 
+              <CourseDetailPage  
+                {...renderProps}
+                setCourses={this.setCourses}
+                searchZip={this.state.searchZip}
+              />}
+            />
+              
           </BrowserRouter>    
         </main>
       </CourseContext.Provider>

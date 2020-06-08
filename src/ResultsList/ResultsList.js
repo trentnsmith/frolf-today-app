@@ -8,18 +8,19 @@ class ResultsList extends Component {
     static contextType = CourseContext;
                 
        render () {    
-         let filteredCourses = this.context.courses;
+         let filteredCourses = JSON.parse(JSON.stringify(this.context.courses));
          if (this.props.courseId) { 
             let filteredCourses = filteredCourses.filter((course) => {
                 return course.courseId === parseInt(this.props.courseId)
             })
         }
-        
+        console.log('context courses', this.context.courses)
         return (
             <div className="ResultsList">
                 {filteredCourses.map(course => {
                     return (
                     <Course
+                        searchZip={this.props.searchZip}
                         key={course.course_id}
                         name={course.course_name}
                         courseId={course.course_id}
