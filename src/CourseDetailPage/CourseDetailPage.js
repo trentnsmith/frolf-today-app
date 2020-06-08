@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
-//import ReviewsList from '../ReviewsList/ReviewsList';
 import './CourseDetailPage.css';
-import AddReview from '../AddReview/AddReview';
 import config from '../config';
 
 
