@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import config from '../config';
-import COURSES from '../courses';
+//import COURSES from '../courses';
+import CourseContext from '../CourseContext'
+//import courses from '../courses';
 
 function DisplayMap() {
+
+    let coursesContext= React.useContext(CourseContext)
+
     let [selectedCourse, setSelectedCourse] = useState(null);
 
     return (
@@ -12,12 +17,14 @@ function DisplayMap() {
                 defaultZoom={8} 
                 defaultCenter={{lat: 41.256538, lng: -95.934502}} 
             >
-              {COURSES.map(course => (
+
+              {coursesContext.courses.map(course => (
+                  
                     <Marker 
-                        key={course.courseId} 
+                        key={course.course_id} 
                         position={{ 
-                            lat: course.location[0],
-                            lng: course.location[1]
+                            lat: parseFloat(course.latitude),
+                            lng: parseFloat(course.longitude)
                         }}
                         onClick={() => {
                             setSelectedCourse(course);
@@ -31,8 +38,8 @@ function DisplayMap() {
               {selectedCourse &&  (
                   <InfoWindow
                     position={{ 
-                        lat: selectedCourse.location[0],
-                        lng: selectedCourse.location[1]
+                        lat: parseFloat(selectedCourse.latitude),
+                        lng: parseFloat(selectedCourse.longitude)
                     }}
                     onCloseClick={() => {
                         setSelectedCourse(null);
@@ -40,7 +47,7 @@ function DisplayMap() {
                   >
                       
                       <div>
-                        <h3>{selectedCourse.name}</h3>
+                        <h3>{selectedCourse.course_name}</h3>
                       </div>
                   </InfoWindow>
               )}
