@@ -7,25 +7,16 @@ import './SearchInput.css'
 class SearchInput extends Component {
     static contextType = CourseContext;
 
-    /*constructor(props) {
-        super(props);
-        this.state = {
-            courses: null
-        }
-    }*/
-
     handleZipSubmit = (e) => {
         e.preventDefault();
         fetch(`${config.API_ENDPOINT}/courses?zip=${this.props.searchZip}`)
         .then((response) => {
-            console.log('this is the response', response)
+            //console.log('this is the response', response)
             return response.json()
         })
-        
         .then(data => {
-
             this.props.setCourses(data.courses)
-            console.log('this is data', data.courses)
+            //console.log('this is data', data.courses)
         })
         .catch(console.error)
         
