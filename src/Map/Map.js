@@ -14,8 +14,8 @@ function DisplayMap() {
     return (
         <div>
             <GoogleMap 
-                defaultZoom={8} 
-                defaultCenter={{lat: 41.256538, lng: -95.934502}} 
+                zoom={9} 
+                center={{lat: 41.256538, lng: -95.934502}} 
             >
 
               {coursesContext.courses.map(course => (
