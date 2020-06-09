@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import config from '../config';
-//import COURSES from '../courses';
 import CourseContext from '../CourseContext'
-//import courses from '../courses';
+
 
 function DisplayMap() {
 
