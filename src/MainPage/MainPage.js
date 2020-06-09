@@ -26,7 +26,9 @@ class MainPage extends Component {
                 </div>
                 <section>
                     
-                <Map />
+                <Map 
+                    setCourses={this.props.setCourses}
+                />
                 </section> 
             </div>   
         );

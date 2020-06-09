@@ -10,11 +10,13 @@ function DisplayMap() {
 
     let [selectedCourse, setSelectedCourse] = useState(null);
 
+    let center = ({lat: 41.256538, lng: -95.934502})
+
     return (
         <div>
             <GoogleMap 
-                zoom={9} 
-                center={{lat: 41.256538, lng: -95.934502}} 
+                zoom={5} 
+                center={center}
             >
 
               {coursesContext.courses.map(course => (

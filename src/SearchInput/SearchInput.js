@@ -12,15 +12,15 @@ class SearchInput extends Component {
         fetch(`${config.API_ENDPOINT}/courses?zip=${this.props.searchZip}`)
         
         .then((response) => {
-            if(response.json === 0) {
-                alert('No results found. Please try a different zipcode')
-            } else {
             //console.log('this is the response', response)
             return response.json()
-            }
         })
         
         .then(data => {
+            //console.log('this is data', data)
+            if (data.status === 2) {
+                alert('No data returned. Please try a different zip code')
+            } else
             this.props.setCourses(data.courses)
             //console.log('this is data', data.courses)
         })
