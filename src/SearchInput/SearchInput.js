@@ -14,9 +14,10 @@ class SearchInput extends Component {
         .then((response) => {
             if(response.json === 0) {
                 alert('No results found. Please try a different zipcode')
-            } else
+            } else {
             //console.log('this is the response', response)
             return response.json()
+            }
         })
         
         .then(data => {

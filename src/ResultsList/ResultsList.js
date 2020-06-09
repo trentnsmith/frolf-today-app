@@ -6,6 +6,12 @@ import './ResultsList.css';
 class ResultsList extends Component {
     
     static contextType = CourseContext;
+
+    componentDidMount () {
+        if (!this.props.courseId) {
+            return alert('alert')
+        }
+    }
                 
        render () {    
          let filteredCourses = JSON.parse(JSON.stringify(this.context.courses));
