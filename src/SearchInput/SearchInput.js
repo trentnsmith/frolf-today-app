@@ -10,10 +10,15 @@ class SearchInput extends Component {
     handleZipSubmit = (e) => {
         e.preventDefault();
         fetch(`${config.API_ENDPOINT}/courses?zip=${this.props.searchZip}`)
+        
         .then((response) => {
+            if(response.json === 0) {
+                alert('No results found. Please try a different zipcode')
+            } else
             //console.log('this is the response', response)
             return response.json()
         })
+        
         .then(data => {
             this.props.setCourses(data.courses)
             //console.log('this is data', data.courses)

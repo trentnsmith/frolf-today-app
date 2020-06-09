@@ -17,7 +17,8 @@ class ResultsList extends Component {
         console.log('context courses', this.context.courses)
         return (
             <div className="ResultsList">
-                {filteredCourses.map(course => {
+                {filteredCourses.length === 0 ? (<div>No results found, please try another zipcode</div>)
+                : filteredCourses.map(course => {
                     return (
                     <Course
                         searchZip={this.props.searchZip}
