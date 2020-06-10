@@ -8,6 +8,8 @@ class SearchForm extends Component {
             <div className="SearchForm">
                 <div className="SearchForm__heading">
                     <h1>Search for a Disc Golf Course</h1>
+                    <p>Enter your zipcode below to find disc golf courses in your area</p>
+                    <p>Check out the location of those courses on the map below.</p>
                 </div>
                 <div className="SearchForm__controls">
                     <SearchInput 
