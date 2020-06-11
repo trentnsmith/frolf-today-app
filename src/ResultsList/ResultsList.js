@@ -26,6 +26,7 @@ class ResultsList extends Component {
                         courseId={course.course_id}
                         holes={course.holes}
                         zip={course.postal_code}
+                        city={course.city}
                 />
                 );
             })}    

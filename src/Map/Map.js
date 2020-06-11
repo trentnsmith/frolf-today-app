@@ -4,18 +4,25 @@ import config from '../config';
 import CourseContext from '../CourseContext'
 
 
-function DisplayMap() {
+function DisplayMap(props) {
 
     let coursesContext= React.useContext(CourseContext)
 
     let [selectedCourse, setSelectedCourse] = useState(null);
 
     let center = ({lat: 41.256538, lng: -95.934502})
+    let zoom = 4
+
+    if (coursesContext.courses && coursesContext.courses.length) {
+        center = ({lat: parseFloat(coursesContext.courses[0].latitude), lng:  parseFloat(coursesContext.courses[0].longitude) })
+        zoom = 8
+    }
+    console.log('this is center', center)
 
     return (
         <div>
             <GoogleMap 
-                zoom={5} 
+                zoom={zoom} 
                 center={center}
             >
 
@@ -61,11 +68,11 @@ function DisplayMap() {
 
 export default function Map() {
     return (
-        <div style={{ width: '100vw', height: '100vh' }}>
+        <div style={{ width: '100vw', height: '100vh' }} className="map">
             <WrappedMap 
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${config.API_KEY}`}
                 loadingElement={<div style={{ height: "100%" }} />}
-                containerElement={<div style={{ height: "300px" }} />}
+                containerElement={<div style={{ height: "400px" }} />}
                 mapElement={<div style={{ height: "100%" }} />}
             />
         </div>

@@ -1,5 +1,7 @@
 .mainpage {
-   
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-color: rgb(75, 101, 122);
+    background-repeat: no-repeat, repeat;
+    color: white;
+    margin-top: 0;
 }
+

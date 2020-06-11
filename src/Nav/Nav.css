@@ -1,8 +1,10 @@
 .Nav {
+    font-family: Spectral;
+    color: whitesmoke;
     height: 50px;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 1px;
     border-bottom: black solid;
     font-size: xx-large;
-    background-color: rgb(5, 149, 29); 
+    background-color: rgb(7, 54, 48); 
 }

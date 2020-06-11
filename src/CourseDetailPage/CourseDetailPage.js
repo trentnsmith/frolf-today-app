@@ -70,36 +70,36 @@ class CourseDetailPage extends Component {
         return (
             <div>
                 <div className="Detail">
-                    
                     <h2 className="Detail__title">{name}</h2>
-                    <div className="Detail__contact">
-                        Private Course:  {access}
-                    </div>
-                    
-                        <span className="Detail__holes">
+                    <div clasName="Description">
+                        <div className="Detail__access">
+                            Private Course:  {access}
+                        </div>
+                        <div className="Detail__holes">
                             # of Holes: {holes}
-                        </span>
-                        &nbsp; &nbsp; &nbsp;
-                        <span className="Detail__tees">
+                        </div>
+                        
+                        <div className="Detail__tees">
                             Tee Types:  {tees}
-                        </span>
-                        &nbsp;&nbsp;&nbsp;
-                        <span className="Detail__length">
+                        </div>
+                        
+                        <div className="Detail__length">
                             Course Distance (ft):  {course_length}
-                        </span>
-                        &nbsp;&nbsp;&nbsp;
-                        <span className="Detail__baskets">
+                        </div>
+                        
+                        <div className="Detail__baskets">
                             Basket Type:  {baskets}
-                        </span>
-                    <div className="Detail__description">{description}</div>
-                    <div className="website__title">
-                        Website:
-                        &nbsp; 
-                        <a href={`${website_link}`} target="_blank">
-                            {website}
-                        </a>
+                        </div>
+
+                        <div className="Detail__description">{description}</div>
+                        <div className="website__title">
+                            Website:
+                            &nbsp; 
+                            <a href={`${website_link}`} target="_blank" className="website__link">
+                                {website}
+                            </a>
+                        </div>
                     </div>
-                    
                 </div>
                 <div className="goback">
                     <p className="links">

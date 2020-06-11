@@ -1,9 +1,22 @@
-input {
-    border: none;
-    border-bottom: 2px solid rgb(9, 12, 12);
-    margin-bottom: 10px;
-}
-
 input:focus {
     outline: none;
+    background: rgb(75, 101, 122);
+}
+
+.Search__button {
+    color: white;
+    background-color: rgb(75, 101, 122);
+    outline: rgb(9, 12, 12);
+    border: 2px solid rgb(9, 12, 12)
+}
+
+.Search__input {
+    border: none;
+    border-bottom: 2px solid rgb(9, 12, 12);
+    color: white;
+    background-color: rgb(75, 101, 122);
+}
+
+.Search__input::placeholder {
+    color: white;
 }

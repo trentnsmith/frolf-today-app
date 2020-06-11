@@ -35,6 +35,7 @@ class SearchInput extends Component {
             <div className="SearchInput">
                 <form className="search-form" onSubmit={this.handleZipSubmit}>
                 <input 
+                    className="Search__input"
                     placeholder="Enter ZIP" 
                     value={this.props.searchZip}
                     onChange={e => this.props.handleUpdate(e.target.value)}
@@ -42,6 +43,7 @@ class SearchInput extends Component {
                 <input 
                     type="submit" 
                     value="Search"
+                    className="Search__button"
                 />
                 </form>     
                 <section>

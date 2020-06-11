@@ -8,12 +8,12 @@ class Course extends Component {
     static contextType = CourseContext;
 
     render () {
-        let { courseId, name, rating, holes, zip } = this.props
+        let { courseId, name, rating, holes, zip, city } = this.props
         return (
             <div className="Course">
                 <div className="Course__content">
                     <h2 className="Course__name">
-                        <Link to={`/course/${courseId}`}>
+                        <Link to={`/course/${courseId}`} className="Course__link">
                             {name}
                         </Link>
                     </h2>
@@ -22,8 +22,8 @@ class Course extends Component {
                         {holes}
                     </div>
                     <div className="Course__zip">
-                        Zip Code: &nbsp;
-                        {zip}
+                        City: &nbsp;
+                        {city}
                     </div>
                 </div>
             </div>

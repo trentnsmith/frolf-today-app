@@ -1,8 +1,15 @@
 .Detail {
-    background-color: rgb(192, 196, 192);
+    background-color: rgb(126, 158, 126);
     margin-bottom: 25px;
     margin-right: 10px;
     margin-left: 10px;
+    color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.Detail__title {
+    text-decoration: underline;
 }
 
 .goback {
@@ -15,4 +22,18 @@
 
 .goback__link {
     text-decoration: none;
+}
+
+.goback__link:hover {
+    cursor: pointer;
+}
+
+.Detail__description {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.website__link {
+    text-decoration: none;
+    color: rgb(176, 220, 255);
 }
