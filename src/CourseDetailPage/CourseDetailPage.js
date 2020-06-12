@@ -102,11 +102,9 @@ class CourseDetailPage extends Component {
                     </div>
                 </div>
                 <div className="goback">
-                    <p className="links">
                     <div  className="goback__link" onClick={this.handleBackToResults}>
                         Back to Results
                     </div>
-                    </p>
                 </div>
                 
 

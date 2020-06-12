@@ -16,16 +16,9 @@
     margin-bottom: 25px;
 }
 
-.links:hover {
-    transform: scale(0.9);
-}
-
-.goback__link {
-    text-decoration: none;
-}
-
 .goback__link:hover {
     cursor: pointer;
+    transform: scale(0.9);
 }
 
 .Detail__description {
@@ -34,6 +27,5 @@
 }
 
 .website__link {
-    text-decoration: none;
     color: rgb(176, 220, 255);
 }
