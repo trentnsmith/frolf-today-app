@@ -1,3 +1,26 @@
+## Frolf Today
+
+An app that allows a user to search for disc golf courses by zipcode, and also be able to view the location of the courses searched on
+a map.
+
+Link to live app: https://frolf-today-app.now.sh/
+
+## Screenshots
+
+Landing Page:
+
+Mainpage. This page allows the user to enter a zipcode to search for courses:
+
+Results. After a user submits a zipcode, results are listed. The user can click on a specific course to get more information, and the
+user can view the location of the courses on the map:
+
+Course's Detail Page. After a user clicks on a course to find out more information, they are shown additional information about
+the selected course. The user can click on the link to go to the course's website, or go back to the results page:
+
+## API Documentation
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
