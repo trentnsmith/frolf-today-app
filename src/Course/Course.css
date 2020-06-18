@@ -2,8 +2,9 @@
     border-style: ridge;
     border-radius: 10px;
     border-color: black;
-    background-color: rgb(126, 158, 126);
+    background-color: rgb(67, 105, 67);
     margin: 2px 2px;
+    color: white;
 }
 
 .Course__content {

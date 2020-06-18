@@ -8,7 +8,7 @@ import './MainPage.css'
 class MainPage extends Component {
     
     render () {
-        //console.log(this.props.match.params)
+        
         return (
             <div className="flex-container">
                 <div className="mainpage" >
@@ -19,7 +19,7 @@ class MainPage extends Component {
                     handleUpdate={this.props.updateSearchZip}/>
                 <ResultsList
                     
-                    //courseId={this.props.match.params.courseId}
+                    
                     courses={this.props.courses}    
                     searchZip={this.props.searchZip}
                     filterOption={this.props.filterOption}/>
@@ -27,7 +27,7 @@ class MainPage extends Component {
                 <section className="map-section">                    
                 <Map
                     courses={this.props.courses} 
-                    //setCourses={this.props.setCourses}
+        
                 />
                 </section> 
             </div>   

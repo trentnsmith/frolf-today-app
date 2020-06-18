@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter } from 'react-router-dom';
 import CourseContext from '../CourseContext';
-//import COURSES from '../courses';
 import Nav from '../Nav/Nav';
 import CourseDetailPage from '../CourseDetailPage/CourseDetailPage';
 import MainPage from '../MainPage/MainPage';
-//import AddReview from '../AddReview/AddReview';
 import './App.css'
 
 

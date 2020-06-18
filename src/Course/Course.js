@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
-//import COURSES from '../courses';
 import './Course.css'
 
 class Course extends Component {
