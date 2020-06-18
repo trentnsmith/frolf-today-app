@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import config from '../config';
 import CourseContext from '../CourseContext'
+import './Map.css';
 
 
 function DisplayMap(props) {
@@ -68,10 +69,10 @@ function DisplayMap(props) {
 
 export default function Map() {
     return (
-        <div style={{ width: '100vw', height: '100vh' }} className="map">
+        <div style={{ width: '50vw', height: '50vh' }} className="map">
             <WrappedMap 
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${config.API_KEY}`}
-                loadingElement={<div style={{ height: "100%" }} />}
+                loadingElement={<div style={{ height: "25%" }} />}
                 containerElement={<div style={{ height: "400px" }} />}
                 mapElement={<div style={{ height: "100%" }} />}
             />
