@@ -1,4 +1,4 @@
-## Frolf Today
+# Frolf Today
 
 An app that allows a user to search for disc golf courses by zipcode, and also be able to view the location of the courses searched on
 a map.
@@ -11,11 +11,17 @@ Landing Page:
 
 Mainpage. This page allows the user to enter a zipcode to search for courses:
 
+![frolf_today_search_main_large](https://user-images.githubusercontent.com/58092710/84978909-b9dc8580-b0f3-11ea-90d4-6329b7789de9.JPG)
+
 Results. After a user submits a zipcode, results are listed. The user can click on a specific course to get more information, and the
 user can view the location of the courses on the map:
 
+![frolf_today_search_results_large](https://user-images.githubusercontent.com/58092710/84978941-cfea4600-b0f3-11ea-88f7-b354ed97fa16.JPG)
+
 Course's Detail Page. After a user clicks on a course to find out more information, they are shown additional information about
 the selected course. The user can click on the link to go to the course's website, or go back to the results page:
+
+![frolf_today_course_detail](https://user-images.githubusercontent.com/58092710/84978965-dd9fcb80-b0f3-11ea-9c83-46e03947ad50.JPG)
 
 ## API Documentation
 
