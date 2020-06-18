@@ -1,4 +1,4 @@
-## Frolf Today
+# Frolf Today
 
 An app that allows a user to search for disc golf courses by zipcode, and also be able to view the location of the courses searched on
 a map.
