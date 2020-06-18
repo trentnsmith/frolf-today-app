@@ -3,7 +3,17 @@
     background-repeat: no-repeat, repeat;
     color: black;
     margin-top: 0;
-    display: inline-block;
-
+    height: 100%;
 }
 
+
+@media only screen and (min-width: 760px) {
+    .flex-container {
+        display: flex;
+    }
+
+    .mainpage, .map-section {
+        width: 50vw;
+        padding: 0 10px;
+    }
+}

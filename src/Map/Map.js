@@ -69,12 +69,12 @@ function DisplayMap(props) {
 
 export default function Map() {
     return (
-        <div style={{ width: '50vw', height: '50vh' }} className="map">
+        <div className="map">
             <WrappedMap 
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${config.API_KEY}`}
-                loadingElement={<div style={{ height: "25%" }} />}
-                containerElement={<div style={{ height: "400px" }} />}
-                mapElement={<div style={{ height: "100%" }} />}
+                loadingElement={<div className="loadingElement" />}
+                containerElement={<div className="containerElement" />}
+                mapElement={<div className="mapElement" />}
             />
         </div>
     )

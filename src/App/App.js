@@ -38,7 +38,7 @@ class App extends Component {
       <CourseContext.Provider value={value}>
         <main className='App'>
           <Nav />
-          <BrowserRouter>
+          <BrowserRouter className="flex-container">
             <Route exact path ='/' render={() => 
                       <MainPage 
                         setCourses={this.setCourses}

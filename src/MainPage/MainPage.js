@@ -10,7 +10,7 @@ class MainPage extends Component {
     render () {
         //console.log(this.props.match.params)
         return (
-            <div>
+            <div className="flex-container">
                 <div className="mainpage" >
                 <SearchForm
                     setCourses={this.props.setCourses}
@@ -24,8 +24,7 @@ class MainPage extends Component {
                     searchZip={this.props.searchZip}
                     filterOption={this.props.filterOption}/>
                 </div>
-                <section>
-                    
+                <section className="map-section">                    
                 <Map
                     courses={this.props.courses} 
                     //setCourses={this.props.setCourses}
