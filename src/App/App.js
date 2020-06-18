@@ -15,23 +15,24 @@ class App extends Component {
     };
 
   setCourses = (courses) => {
-    console.log('these are the courses', courses)
+    console.log('these are the courses', courses);
     this.setState({
       courses
-    })
-  }
+    });
+  };
 
   updateSearchZip = (zip) => {
     this.setState({
       searchZip: zip
-    })
-  }
+    });
+  };
+
   render() {
     let value = {
       courses: this.state.courses,
       setCourses: this.setCourses,
       updateSearchZip: this.updateSearchZip
-    }
+    };
     return (
       <CourseContext.Provider value={value}>
         <main className='App'>
@@ -58,7 +59,7 @@ class App extends Component {
         </main>
       </CourseContext.Provider>
     );
-  }
-}
+  };
+};
 
 export default App;

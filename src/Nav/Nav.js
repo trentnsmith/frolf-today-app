@@ -8,6 +8,7 @@ class Nav extends Component {
                 Frolf Today
             </h1>
         );
-    }
-}
+    };
+};
+
 export default Nav;

@@ -7,18 +7,17 @@ import './Map.css';
 
 function DisplayMap(props) {
 
-    let coursesContext= React.useContext(CourseContext)
+    let coursesContext= React.useContext(CourseContext);
 
     let [selectedCourse, setSelectedCourse] = useState(null);
 
-    let center = ({lat: 41.256538, lng: -95.934502})
-    let zoom = 4
+    let center = ({lat: 41.256538, lng: -95.934502});
+    let zoom = 4;
 
     if (coursesContext.courses && coursesContext.courses.length) {
         center = ({lat: parseFloat(coursesContext.courses[0].latitude), lng:  parseFloat(coursesContext.courses[0].longitude) })
         zoom = 8
-    }
-    console.log('this is center', center)
+    };
 
     return (
         <div>
@@ -64,7 +63,7 @@ function DisplayMap(props) {
             </GoogleMap>    
         </div>
     );
-}
+};
     const WrappedMap = withScriptjs(withGoogleMap(DisplayMap))
 
 export default function Map() {
@@ -77,7 +76,5 @@ export default function Map() {
                 mapElement={<div className="mapElement" />}
             />
         </div>
-    )
-}
-
-
+    );
+};

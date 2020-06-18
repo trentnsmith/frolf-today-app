@@ -12,9 +12,9 @@ class ResultsList extends Component {
          if (this.props.courseId) { 
             let filteredCourses = filteredCourses.filter((course) => {
                 return course.courseId === parseInt(this.props.courseId)
-            })
-        }
-        console.log('context courses', this.context.courses)
+            });
+        };
+
         return (
             <div className="ResultsList">
                 {filteredCourses.map(course => {
@@ -32,7 +32,7 @@ class ResultsList extends Component {
             })}    
             </div>      
         );
-    }
-}
+    };
+};
 
 export default ResultsList;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import ResultsList from '../ResultsList/ResultsList';
 import Map from '../Map/Map';
-import './MainPage.css'
+import './MainPage.css';
 
 
 class MainPage extends Component {
@@ -32,7 +32,7 @@ class MainPage extends Component {
                 </section> 
             </div>   
         );
-    }
-}
+    };
+};
 
 export default MainPage;

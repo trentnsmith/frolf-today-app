@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
-import './Course.css'
+import './Course.css';
 
 class Course extends Component {
     static contextType = CourseContext;
 
     render () {
-        let { courseId, name, rating, holes, zip, city } = this.props
+        let { courseId, name, rating, holes, zip, city } = this.props;
         return (
             <div className="Course">
                 <div className="Course__content">
@@ -27,7 +27,7 @@ class Course extends Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
 export default Course;

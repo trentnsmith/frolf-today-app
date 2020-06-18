@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import config from '../config';
 import CourseContext from '../CourseContext';
-import './SearchInput.css'
+import './SearchInput.css';
 
 class SearchInput extends Component {
     static contextType = CourseContext;
@@ -25,7 +25,7 @@ class SearchInput extends Component {
         })
         .catch(console.error)
         
-    }
+    };
 
     render () {
         
@@ -49,7 +49,7 @@ class SearchInput extends Component {
                     
             </div>
         );
-    }
-}
+    };
+};
 
 export default SearchInput;

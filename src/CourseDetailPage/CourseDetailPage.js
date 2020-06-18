@@ -13,8 +13,7 @@ class CourseDetailPage extends Component {
             .then((response) => {
                 console.log('this is the response', response)
                 return response.json()
-            })
-            
+            })            
             .then(data => {
                 this.context.setCourses(data.courses)
                 console.log('this is data', data)
@@ -22,7 +21,7 @@ class CourseDetailPage extends Component {
             .catch(console.error)
         }
         getCourseDescription()
-    }
+    };
 
     handleBackToResults = (e) => {
         e.preventDefault();
@@ -31,7 +30,6 @@ class CourseDetailPage extends Component {
             console.log('this is the response', response)
             return response.json()
         })
-        
         .then(data => {
 
             this.props.setCourses(data.courses)
@@ -39,22 +37,18 @@ class CourseDetailPage extends Component {
             console.log(this.props)
             this.props.history.push('/')
         })
-        
         .catch(console.error)
-    }
+    };
 
     render () {       
-        console.log('this is searcZip', this.props.searchZip)
-        console.log(this.props.match.params)
         let filteredCourse = this.context.courses.filter(course => {
             return course.course_id == this.props.match.params.courseId
-        })
-        console.log(this.context.courses)
+        });
 
-        let name, holes, description, access, tees, course_length, baskets, website, website_link
+        let name, holes, description, access, tees, course_length, baskets, website, website_link;
 
         if (this.context.courses.length) {
-            console.log('whatever you want')
+            
           name = filteredCourse[0].course_name;
           description = filteredCourse[0].course_description;
           holes = filteredCourse[0].holes;
@@ -64,7 +58,7 @@ class CourseDetailPage extends Component {
           baskets = filteredCourse[0].basket_types;
           website = filteredCourse[0].external_link_1_title;
           website_link =  filteredCourse[0].external_link_1_url;
-        }
+        };
        
 
         return (
@@ -110,7 +104,7 @@ class CourseDetailPage extends Component {
 
             </div>    
         );
-    }
-}
+    };
+};
 
-export default CourseDetailPage
+export default CourseDetailPage;

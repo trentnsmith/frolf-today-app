@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './SearchForm.css'
-
+import './SearchForm.css';
 import SearchInput from '../SearchInput/SearchInput';
 
 class SearchForm extends Component {
@@ -21,7 +20,7 @@ class SearchForm extends Component {
                 </div>
             </div>
         );
-    }
-}
+    };
+};
 
 export default SearchForm;
