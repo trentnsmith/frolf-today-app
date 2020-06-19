@@ -6,7 +6,7 @@ import './ResultsList.css';
 class ResultsList extends Component {
     
     static contextType = CourseContext;
-                
+       //filtering through the JSON data that contain the matching courseId        
        render () {    
          let filteredCourses = JSON.parse(JSON.stringify(this.context.courses));
          if (this.props.courseId) { 
@@ -16,6 +16,8 @@ class ResultsList extends Component {
         };
 
         return (
+            //mapping over the filterCourse and passing the information to 
+            //the Course component
             <div className="ResultsList">
                 {filteredCourses.map(course => {
                     return (

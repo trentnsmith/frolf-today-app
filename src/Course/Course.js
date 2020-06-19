@@ -7,6 +7,7 @@ class Course extends Component {
     static contextType = CourseContext;
 
     render () {
+        //naming variables to be used as props
         let { courseId, name, holes, city } = this.props;
         return (
             <div className="Course">

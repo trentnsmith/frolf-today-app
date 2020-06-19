@@ -9,14 +9,15 @@ class CourseDetailPage extends Component {
 
     componentDidMount () {
         let getCourseDescription = () => {
+            console.log('this.props', this.props)
             fetch(`${config.API_ENDPOINT}/courses?course_id=${this.props.match.params.courseId}`)
             .then((response) => {
-                console.log('this is the response', response)
+               
                 return response.json()
             })            
             .then(data => {
                 this.context.setCourses(data.courses)
-                console.log('this is data', data)
+               
             })
             .catch(console.error)
         }
@@ -27,14 +28,13 @@ class CourseDetailPage extends Component {
         e.preventDefault();
         fetch(`${config.API_ENDPOINT}/courses?zip=${this.props.searchZip}`)
         .then((response) => {
-            console.log('this is the response', response)
+            
             return response.json()
         })
         .then(data => {
 
             this.props.setCourses(data.courses)
-            console.log('this is data', data.courses)
-            console.log(this.props)
+            
             this.props.history.push('/')
         })
         .catch(console.error)
@@ -62,6 +62,8 @@ class CourseDetailPage extends Component {
        
 
         return (
+            //Displaying decriptive data for the selected course
+            //onCLick function to go back to the results
             <div>
                 <div className="Detail">
                     <h2 className="Detail__title">{name}</h2>

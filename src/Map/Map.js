@@ -11,9 +11,12 @@ function DisplayMap(props) {
 
     let [selectedCourse, setSelectedCourse] = useState(null);
 
+    //setting center and zoom as global variables so it may be updated
     let center = ({lat: 41.256538, lng: -95.934502});
     let zoom = 4;
 
+    //using courseContext to change the location of where the map zooms, based on
+    //the user's input and the results
     if (coursesContext.courses && coursesContext.courses.length) {
         center = ({lat: parseFloat(coursesContext.courses[0].latitude), lng:  parseFloat(coursesContext.courses[0].longitude) })
         zoom = 8
@@ -25,9 +28,9 @@ function DisplayMap(props) {
                 zoom={zoom} 
                 center={center}
             >
-
+  
               {coursesContext.courses.map(course => (
-                  
+                  //mapping over results from courseContext
                     <Marker 
                         key={course.course_id} 
                         position={{ 
@@ -44,6 +47,7 @@ function DisplayMap(props) {
                     />
               ))}
               {selectedCourse &&  (
+                  //selected course brings up an infowindow and displays the course name
                   <InfoWindow
                     position={{ 
                         lat: parseFloat(selectedCourse.latitude),

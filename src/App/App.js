@@ -8,19 +8,21 @@ import './App.css'
 
 
 class App extends Component {
+  //Setting state 
   state = {
       searchZip: '',
       filterOption: 'All',
       courses: []
     };
 
+  //create function to handle this.setState for courses  
   setCourses = (courses) => {
-    console.log('these are the courses', courses);
     this.setState({
       courses
     });
   };
 
+  //create function to handle this.setState for zip
   updateSearchZip = (zip) => {
     this.setState({
       searchZip: zip
@@ -39,13 +41,13 @@ class App extends Component {
           <Nav />
           <BrowserRouter className="flex-container">
             <Route exact path ='/' render={() => 
-                      <MainPage 
-                        setCourses={this.setCourses}
-                        searchZip={this.state.searchZip}
-                        filterOption={this.state.filterOption}
-                        updateSearchZip={this.updateSearchZip}
-                        courses={this.state.courses}
-                      />
+              <MainPage 
+                setCourses={this.setCourses}
+                searchZip={this.state.searchZip}
+                filterOption={this.state.filterOption}
+                updateSearchZip={this.updateSearchZip}
+                courses={this.state.courses}
+              />
             } />
             <Route path='/course/:courseId' render={(renderProps)=> 
               <CourseDetailPage  

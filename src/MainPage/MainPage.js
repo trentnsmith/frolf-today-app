@@ -8,7 +8,6 @@ import './MainPage.css';
 class MainPage extends Component {
     
     render () {
-        
         return (
             <div className="flex-container">
                 <div className="mainpage" >
@@ -17,17 +16,14 @@ class MainPage extends Component {
                     searchZip={this.props.searchZip}
                     filterOption={this.props.filterOption}
                     handleUpdate={this.props.updateSearchZip}/>
-                <ResultsList
-                    
-                    
+                <ResultsList   
                     courses={this.props.courses}    
                     searchZip={this.props.searchZip}
                     filterOption={this.props.filterOption}/>
                 </div>
                 <section className="map-section">                    
                 <Map
-                    courses={this.props.courses} 
-        
+                    courses={this.props.courses}
                 />
                 </section> 
             </div>   

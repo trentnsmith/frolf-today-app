@@ -6,6 +6,7 @@ import './SearchInput.css';
 class SearchInput extends Component {
     static contextType = CourseContext;
 
+    //function that handles making API based on the zipcode that is entered
     handleZipSubmit = (e) => {
         e.preventDefault();
         fetch(`${config.API_ENDPOINT}/courses?zip=${this.props.searchZip}`)
@@ -34,7 +35,7 @@ class SearchInput extends Component {
             <div className="SearchInput">
                 <form className="search-form" onSubmit={this.handleZipSubmit}>   
                 <input 
-                    for="enter zip"
+                    htmlFor="enter zip"
                     className="Search__input"
                     placeholder="Enter ZIP" 
                     value={this.props.searchZip}
