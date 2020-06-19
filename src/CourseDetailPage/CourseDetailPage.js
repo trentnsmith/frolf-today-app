@@ -65,7 +65,7 @@ class CourseDetailPage extends Component {
             <div>
                 <div className="Detail">
                     <h2 className="Detail__title">{name}</h2>
-                    <div clasName="Description">
+                    <div className="Description">
                         <div className="Detail__access">
                             Private Course:  {access}
                         </div>

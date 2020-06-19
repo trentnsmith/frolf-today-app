@@ -7,7 +7,7 @@ class Course extends Component {
     static contextType = CourseContext;
 
     render () {
-        let { courseId, name, rating, holes, zip, city } = this.props;
+        let { courseId, name, holes, city } = this.props;
         return (
             <div className="Course">
                 <div className="Course__content">
