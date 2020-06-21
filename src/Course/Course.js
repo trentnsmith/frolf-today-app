@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
+import config from '../config';
 import './Course.css';
 
 class Course extends Component {
     static contextType = CourseContext;
 
+    handleDeleteCourse = () => {
+        fetch(`${config.API_ENDPOINT}/courses/${this.props.id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+        .then(res => {
+            if (!res.ok)
+                return res.json().then(event => Promise.reject(event))
+        })
+        .then(() => {
+            this.context.deleteCourse(this.props.id)
+        })
+        .catch(error => {
+            alert(error.message)
+        })
+    };
+
     render () {
-        //naming variables to be used as props
+        
         let { courseId, name, holes, city } = this.props;
         return (
             <div className="Course">
@@ -26,6 +46,12 @@ class Course extends Component {
                         {city}
                     </div>
                 </div>
+                <button
+                    className="course-delete"
+                    onClick={this.handleDeleteCourse}
+                >
+                    Remove    
+                </button>    
             </div>
         );
     };

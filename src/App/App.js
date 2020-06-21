@@ -5,6 +5,7 @@ import Nav from '../Nav/Nav';
 import CourseDetailPage from '../CourseDetailPage/CourseDetailPage';
 import MainPage from '../MainPage/MainPage';
 import './App.css'
+import AddCourse from '../AddCourse/AddCourse';
 
 
 class App extends Component {
@@ -29,11 +30,25 @@ class App extends Component {
     });
   };
 
+  handleDeleteCourse = (id) => {
+    this.setState({
+      courses: this.state.courses.filter(course => course.id !== id)
+    })
+  }
+
+  handleAddCourse = (newCourse) => {
+    this.setState({
+      courses: this.state.courses.concat(newCourse)
+    })
+  }
+
   render() {
     let value = {
       courses: this.state.courses,
       setCourses: this.setCourses,
-      updateSearchZip: this.updateSearchZip
+      updateSearchZip: this.updateSearchZip,
+      deleteCourse: this.handleDeleteCourse,
+      addCourse: this.handleAddCourse
     };
     return (
       <CourseContext.Provider value={value}>
@@ -56,7 +71,7 @@ class App extends Component {
                 searchZip={this.state.searchZip}
               />}
             />
-              
+            <Route path='/add-course' component={AddCourse} />  
           </BrowserRouter>    
         </main>
       </CourseContext.Provider>

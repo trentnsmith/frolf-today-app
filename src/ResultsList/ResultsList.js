@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
 import Course from '../Course/Course';
 import './ResultsList.css';
@@ -18,21 +19,29 @@ class ResultsList extends Component {
         return (
             //mapping over the filterCourse and passing the information to 
             //the Course component
-            <div className="ResultsList">
-                {filteredCourses.map(course => {
-                    return (
-                    <Course
-                        searchZip={this.props.searchZip}
-                        key={course.course_id}
-                        name={course.course_name}
-                        courseId={course.course_id}
-                        holes={course.holes}
-                        zip={course.postal_code}
-                        city={course.city}
-                />
-                );
-            })}    
-            </div>      
+            <div>
+                <div className="ResultsList">
+                    {filteredCourses.map(course => {
+                        return (
+                        <Course
+                            searchZip={this.props.searchZip}
+                            id={course.id}
+                            key={course.course_id}
+                            name={course.course_name}
+                            courseId={course.course_id}
+                            holes={course.holes}
+                            zip={course.postal_code}
+                            city={course.city}
+                    />
+                    );
+                })}    
+                </div>
+                <div className="addcourse">
+                    <Link className="addcourse_link" to={'/add-course'}>
+                        Add Course
+                    </Link>
+                </div>      
+            </div>
         );
     };
 };
