@@ -9,6 +9,7 @@ class ResultsList extends Component {
     static contextType = CourseContext;
        //filtering through the JSON data that contain the matching courseId        
        render () {    
+           console.log('this context courses', this.context.courses)
          let filteredCourses = JSON.parse(JSON.stringify(this.context.courses));
          if (this.props.courseId) { 
             let filteredCourses = filteredCourses.filter((course) => {
@@ -22,6 +23,7 @@ class ResultsList extends Component {
             <div>
                 <div className="ResultsList">
                     {filteredCourses.map(course => {
+                        console.log('course', course)
                         return (
                         <Course
                             searchZip={this.props.searchZip}

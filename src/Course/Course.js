@@ -6,8 +6,11 @@ import './Course.css';
 
 class Course extends Component {
     static contextType = CourseContext;
+    
 
     handleDeleteCourse = () => {
+        console.log('this.props.id', this.props.id)
+        console.log('courses', CourseContext.courses)
         fetch(`${config.API_ENDPOINT}/courses/${this.props.id}`, {
             method: 'DELETE',
             headers: {
@@ -28,12 +31,12 @@ class Course extends Component {
 
     render () {
         
-        let { courseId, name, holes, city } = this.props;
+        let { id, name, holes, city } = this.props;
         return (
             <div className="Course">
                 <div className="Course__content">
                     <h2 className="Course__name">
-                        <Link to={`/course/${courseId}`} className="Course__link">
+                        <Link to={`/course/${id}`} className="Course__link">
                             {name}
                         </Link>
                     </h2>

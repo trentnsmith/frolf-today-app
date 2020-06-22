@@ -21,7 +21,8 @@ class SearchInput extends Component {
             if (data.status === 2) {
                 alert('No data returned. Please try a different zip code')
             } else
-            this.props.setCourses(data.courses)
+            console.log('data courses', data)
+            this.props.setCourses(data)
             
         })
         .catch(console.error)

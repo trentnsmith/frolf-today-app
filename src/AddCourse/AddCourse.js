@@ -42,6 +42,26 @@ class AddCourse extends Component {
             value: '',
             touched: false
         },
+        latitude: {
+            value: '',
+            touched: false
+        },
+        longitude: {
+            value: '',
+            touched: false
+        },
+        website_title: {
+            value: '',
+            touched: false
+        },
+        website_url: {
+            value: '',
+            touched: false
+        },
+        course_length: {
+            value: '',
+            touched: false
+        },
     };
 
     static contextType = CourseContext;
@@ -91,6 +111,31 @@ class AddCourse extends Component {
         private_course.value = e.target.value
         this.setState({private_course})
     };
+    handleLatitude = (e) => {
+        let {latitude} = this.state
+        latitude.value = e.target.value
+        this.setState({latitude})
+    };
+    handleLongitude = (e) => {
+        let {longitude} = this.state
+        longitude.value = e.target.value
+        this.setState({longitude})
+    };
+    handleWebsiteTitle = (e) => {
+        let {website_title} = this.state
+        website_title.value = e.target.value
+        this.setState({website_title})
+    };
+    handleWebsiteUrl = (e) => {
+        let {website_url} = this.state
+        website_url.value = e.target.value
+        this.setState({website_url})
+    };
+    handleLength = (e) => {
+        let {course_length} = this.state
+        course_length.value = e.target.value
+        this.setState({course_length})
+    };
     
     
     handleFormSubmit = (e) => {
@@ -105,6 +150,11 @@ class AddCourse extends Component {
             tee_types: this.state.tee_types.value,
             description: this.state.description.value,
             private_course: this.state.private_course.value,
+            latitude: this.state.latitude.value,
+            longitude: this.state.longitude.value,
+            website_title: this.state.website_title.value,
+            website_url: this.state.website_url.value,
+            course_length: this.state.course_length.value
         };
         if (this.state.course_name) {
             fetch(`${config.API_ENDPOINT}/courses`, 
@@ -115,8 +165,9 @@ class AddCourse extends Component {
                 return response.json();
             })
             .then((savedCourse) => {
-                this.context.addCourse(savedCourse)
                 this.props.history.push('/')
+                this.context.addCourse(savedCourse)
+                
             })
             .catch((error) => {
                 console.log(error)
@@ -150,6 +201,7 @@ class AddCourse extends Component {
                         <input className="name_input" type="text" onChange={this.handleCourseName} required />
                         <ValidationError message={this.validateName()} />
                     </div>
+
                     <div className="location_section">
                         <label className="location_zipcode">
                             Zipcode
@@ -163,7 +215,28 @@ class AddCourse extends Component {
                             State
                         </label>
                         <input className="state_input" type="text" onChange={this.handleStateName} />
+                        <label className="location_latitude">
+                            Latitude
+                        </label>
+                        <input className="latitude _input" type="text" onChange={this.handleLatitude} />
+                        <label className="location_longitude">
+                            Longitude
+                        </label>
+                        <input className="longitude _input" type="text" onChange={this.handleLongitude} />
+                        <label className="location_website">
+                            Website Title
+                        </label>
+                        <input className="website _input" type="text" onChange={this.handleWebsiteTitle} />
+                        <label className="location_latitude">
+                            Website URL
+                        </label>
+                        <input className="website_input" type="text" onChange={this.handleWebsiteUrl} />
+                        <label className="location_latitude">
+                            Course length
+                        </label>
+                        <input className="latitude _input" type="text" onChange={this.handleLength} />
                     </div>
+
                     <div className="details_section">
                         <label className="details_holes">
                             Holes
@@ -182,17 +255,21 @@ class AddCourse extends Component {
                         </label>
                         <input className="private_input" type="text" onChange={this.handlePrivate} />
                     </div>
+
                     <div className="description_section">
                         <textarea onChange={this.handleDescription} />
                     </div>
+
                     <div className="submit_section">
                         <input className="form_submit" type="submit" value="Add Course" />
                     </div>
+
                     <div className="goback_section">
                         <Link className="goback_link" to='/'>
                             Go Back
                         </Link>
                     </div>
+
                 </form>
             </section>
 
