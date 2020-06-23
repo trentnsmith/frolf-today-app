@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CourseContext from '../CourseContext';
+import { Link } from 'react-router-dom';
 import './CourseDetailPage.css';
 import config from '../config';
 
@@ -7,100 +8,54 @@ import config from '../config';
 class CourseDetailPage extends Component {
     static contextType = CourseContext;
 
-    componentDidMount () {
-        let getCourseDescription = () => {
-            console.log('this.props', this.props)
-            fetch(`${config.API_ENDPOINT}/courses?course_id=${this.props.match.params.courseId}`)
-            .then((response) => {
-               
-                return response.json()
-            })            
-            .then(data => {
-                this.context.setCourses(data.courses)
-               
-            })
-            .catch(console.error)
-        }
-        getCourseDescription()
-    };
 
-    handleBackToResults = (e) => {
-        e.preventDefault();
-        fetch(`${config.API_ENDPOINT}/courses?zip=${this.props.searchZip}`)
-        .then((response) => {
-            
-            return response.json()
-        })
-        .then(data => {
-
-            this.props.setCourses(data.courses)
-            
-            this.props.history.push('/')
-        })
-        .catch(console.error)
-    };
-
-    render () {       
+    render () {      
+        
         let filteredCourse = this.context.courses.filter(course => {
-            return course.course_id == this.props.match.params.courseId
+            return course.id === parseInt(this.props.match.params.courseId)
         });
-
-        let name, holes, description, access, tees, course_length, baskets, website, website_link;
-
-        if (this.context.courses.length) {
-            
-          name = filteredCourse[0].course_name;
-          description = filteredCourse[0].course_description;
-          holes = filteredCourse[0].holes;
-          access = filteredCourse[0].private;
-          tees = filteredCourse[0].tee_types;
-          course_length = filteredCourse[0].total_length_of_course;
-          baskets = filteredCourse[0].basket_types;
-          website = filteredCourse[0].external_link_1_title;
-          website_link =  filteredCourse[0].external_link_1_url;
-        };
-       
+        
+        let course = filteredCourse[0] || {}   
 
         return (
             //Displaying decriptive data for the selected course
-            //onCLick function to go back to the results
             <div>
                 <div className="Detail">
-                    <h2 className="Detail__title">{name}</h2>
+                    <h2 className="Detail__title">{course.course_name}</h2>
                     <div className="Description">
                         <div className="Detail__access">
-                            Private Course:  {access}
+                            Private Course:  {course.private_course}
                         </div>
                         <div className="Detail__holes">
-                            # of Holes: {holes}
+                            # of Holes: {course.holes}
                         </div>
                         
                         <div className="Detail__tees">
-                            Tee Types:  {tees}
+                            Tee Types:  {course.tee_types}
                         </div>
                         
                         <div className="Detail__length">
-                            Course Distance (ft):  {course_length}
+                            Course Distance (ft):  {course.course_length}
                         </div>
                         
                         <div className="Detail__baskets">
-                            Basket Type:  {baskets}
+                            Basket Type:  {course.basket_types}
                         </div>
 
-                        <div className="Detail__description">{description}</div>
+                        <div className="Detail__description">{course.description}</div>
                         <div className="website__title">
                             Website:
                             &nbsp; 
-                            <a href={`${website_link}`} target="_blank" className="website__link">
-                                {website}
+                            <a href={`${course.website_url}`} target="_blank" className="website__link">
+                                {course.website_title}
                             </a>
                         </div>
                     </div>
                 </div>
                 <div className="goback">
-                    <div  className="goback__link" onClick={this.handleBackToResults}>
+                    <Link  className="goback__link" to='/'>
                         Back to Results
-                    </div>
+                    </Link>
                 </div>
                 
 

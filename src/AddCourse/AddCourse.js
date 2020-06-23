@@ -3,6 +3,7 @@ import CourseContext from '../CourseContext';
 import { Link } from 'react-router-dom';
 import ValidationError from '../Validation';
 import config from '../config';
+import './AddCourse.css';
 
 class AddCourse extends Component {
     state = {
@@ -187,92 +188,153 @@ class AddCourse extends Component {
         }
     };
 
+    validateZipcode = () => {
+        let zip = this.state.zipcode.value.trim();
+        if (!this.state.zipcode.touched) {
+            return
+        }
+        if (zip.length < 5) {
+            return 'Zipcode must be 5 digits'
+        }
+    };
+
 
     render () {
         return (
-
-            <section className="creat_course">
+            <div className="container">
+            <div className="create_course">
                 <h2>Add a new course</h2>
-                <form onSubmit={this.handleFormSubmit}>
+                <form onSubmit={this.handleFormSubmit} className="addcourse_form">
+                    <section className="section">
                     <div className="name_section">
                         <label className="name_label">
                             Course Name
                         </label>
-                        <input className="name_input" type="text" onChange={this.handleCourseName} required />
-                        <ValidationError message={this.validateName()} />
+                        <div>
+                            <input className="name_input" type="text" onChange={this.handleCourseName} required />
+                            <ValidationError message={this.validateName()} />
+                        </div>
                     </div>
-
                     <div className="location_section">
                         <label className="location_zipcode">
                             Zipcode
                         </label>
-                        <input className="zipcode_input" type="text" onChange={this.handleZipcode} required />
+                        <div>
+                            <input className="zipcode_input" type="text" onChange={this.handleZipcode} required />
+                            <ValidationError message={this.validateZipcode()} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="location_city">
                             City
                         </label>
-                        <input className="city_input" type="text" onChange={this.handleCity} />
+                        <div>
+                            <input className="city_input" type="text" onChange={this.handleCity} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="location_state">
                             State
                         </label>
-                        <input className="state_input" type="text" onChange={this.handleStateName} />
+                        <div>
+                            <input className="state_input" type="text" onChange={this.handleStateName} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="location_latitude">
                             Latitude
                         </label>
-                        <input className="latitude _input" type="text" onChange={this.handleLatitude} />
+                        <div>
+                            <input className="latitude _input" type="text" onChange={this.handleLatitude} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="location_longitude">
                             Longitude
                         </label>
-                        <input className="longitude _input" type="text" onChange={this.handleLongitude} />
+                        <div>
+                            <input className="longitude _input" type="text" onChange={this.handleLongitude} />
+                        </div>
+                    </div>
+                    </section>
+                    <section className="section">
+                    <div>
                         <label className="location_website">
                             Website Title
                         </label>
-                        <input className="website _input" type="text" onChange={this.handleWebsiteTitle} />
+                        <div>
+                            <input className="website _input" type="text" onChange={this.handleWebsiteTitle} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="location_latitude">
                             Website URL
                         </label>
-                        <input className="website_input" type="text" onChange={this.handleWebsiteUrl} />
-                        <label className="location_latitude">
-                            Course length
-                        </label>
-                        <input className="latitude _input" type="text" onChange={this.handleLength} />
+                        <div>
+                            <input className="website_input" type="text" onChange={this.handleWebsiteUrl} />
+                        </div>
                     </div>
-
-                    <div className="details_section">
+                    <div>
+                        <label className="location_latitude">
+                            Course length (ft)
+                        </label>
+                        <div>
+                            <input className="latitude _input" type="text" onChange={this.handleLength} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="details_holes">
                             Holes
                         </label>
-                        <input className="holes_input" type="text" onChange={this.handleHoles} />
+                        <div>
+                            <input className="holes_input" type="text" onChange={this.handleHoles} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="details_baskets">
                             Baskets
                         </label>
-                        <input className="basket_input" type="text" onChange={this.handleBaskets} />
+                        <div>
+                            <input className="basket_input" type="text" onChange={this.handleBaskets} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="details_tees">
                             Type of Tees
                         </label>
-                        <input className="tee_input" type="text" onChange={this.handleTees} />
+                        <div>
+                            <input className="tee_input" type="text" onChange={this.handleTees} />
+                        </div>
+                    </div>
+                    <div>
                         <label className="details_private">
                             Private Course
                         </label>
-                        <input className="private_input" type="text" onChange={this.handlePrivate} />
+                        <div>
+                            <select className="private_input" type="text" onChange={this.handlePrivate}>
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>    
+                        </div>
                     </div>
-
+                    </section>
+                    <section className="section">
                     <div className="description_section">
-                        <textarea onChange={this.handleDescription} />
+                        <textarea onChange={this.handleDescription} placeholder="Description of the course..."/>
                     </div>
 
                     <div className="submit_section">
                         <input className="form_submit" type="submit" value="Add Course" />
                     </div>
-
-                    <div className="goback_section">
+                    </section>
+                </form>
+            </div>
+            <div className="goback_section">
                         <Link className="goback_link" to='/'>
                             Go Back
                         </Link>
-                    </div>
-
-                </form>
-            </section>
-
+            </div>
+            </div>
         );
     };
 };
