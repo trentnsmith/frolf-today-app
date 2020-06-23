@@ -23,6 +23,11 @@ the selected course. The user can click on the link to go to the course's websit
 
 ![frolf_today_course_detail](https://user-images.githubusercontent.com/58092710/84978965-dd9fcb80-b0f3-11ea-9c83-46e03947ad50.JPG)
 
+Add a new course. A user can enter a disc golf if they choose so.
+
+![image](https://user-images.githubusercontent.com/58092710/85363647-06a2d080-b4e7-11ea-9114-8397de12c598.png)
+
+
 ## API Documentation
 
 
