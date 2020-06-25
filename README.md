@@ -1,6 +1,6 @@
 # Frolf Today
 
-An app that allows a user to search for disc golf courses by zipcode, and also be able to view the location of the courses searched on
+An app that allows a user to search for disc golf courses by zipcode in the great state of Nebraska, and also be able to view the location of the courses searched on
 a map.
 
 Link to live app: https://frolf-today-app.now.sh/
