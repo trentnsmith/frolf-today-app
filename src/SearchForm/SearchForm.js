@@ -7,8 +7,8 @@ class SearchForm extends Component {
         return (
             <div className="SearchForm">
                 <div className="SearchForm__heading">
-                    <h1>Search for a Disc Golf Course</h1>
-                    <p>Enter your zipcode below to find disc golf courses in your area</p>
+                    <h1>Search for a Nebraska Disc Golf Course</h1>
+                    <p>Enter your Nebraska zipcode below to find disc golf courses in your area</p>
                     <p>Check out the location of those courses on the map below</p>
                 </div>
                 <div className="SearchForm__controls">
