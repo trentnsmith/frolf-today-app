@@ -311,10 +311,7 @@ class AddCourse extends Component {
                             Private Course
                         </label>
                         <div>
-                            <select className="private_input" type="text" onChange={this.handlePrivate}>
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>    
+                            <input type="text" onChange={this.handlePrivate} />   
                         </div>
                     </div>
                     </section>
