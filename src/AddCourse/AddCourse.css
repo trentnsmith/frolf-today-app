@@ -23,6 +23,35 @@ textarea {
 
 .goback_link {
     font-size: larger;
+    color: white;
+    background: rgb(75, 101, 122);
+    text-decoration: none;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+    
+.goback_link:hover {
+    color: coral;
+    background: gray;
+}
+
+.form_submit {
+    color: white;
+    background: rgb(75, 101, 122);
+    text-decoration: none;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+    
+.form_submit:hover {
+    color: coral;
+    background: gray;
+    cursor: pointer;
 }
 
 @media only screen and (min-width: 760px) {

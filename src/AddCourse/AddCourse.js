@@ -146,7 +146,7 @@ class AddCourse extends Component {
             holes: this.state.holes.value,
             zipcode: this.state.zipcode.value,
             city: this.state.city.value,
-            state_name: this.state.state_name.value,
+            state_name: 'Nebraska',
             basket_types: this.state.basket_types.value,
             tee_types: this.state.tee_types.value,
             description: this.state.description.value,
@@ -166,7 +166,7 @@ class AddCourse extends Component {
                 return response.json();
             })
             .then((savedCourse) => {
-                this.props.history.push('/')
+                this.props.history.push('/search-page')
                 this.context.addCourse(savedCourse)
                 
             })
@@ -237,7 +237,7 @@ class AddCourse extends Component {
                             State
                         </label>
                         <div>
-                            <input className="state_input" type="text" onChange={this.handleStateName} />
+                            <input className="state_input" type="text" value="Nebraska" onChange={this.handleStateName}/>
                         </div>
                     </div>
                     <div>
@@ -292,7 +292,7 @@ class AddCourse extends Component {
                     </div>
                     <div>
                         <label className="details_baskets">
-                            Baskets
+                            Basket Type
                         </label>
                         <div>
                             <input className="basket_input" type="text" onChange={this.handleBaskets} />
@@ -303,7 +303,11 @@ class AddCourse extends Component {
                             Type of Tees
                         </label>
                         <div>
-                            <input className="tee_input" type="text" onChange={this.handleTees} />
+                            <select className="tee_input" type="text" onChange={this.handleTees}>
+                                <option selectedvalue='grass'>Grass</option>
+                                <option value='cement'>Cement</option>
+                                <option value='dirt'>Dirt</option>
+                            </select>
                         </div>
                     </div>
                     <div>
@@ -311,7 +315,8 @@ class AddCourse extends Component {
                             Private Course
                         </label>
                         <div>
-                            <input type="text" onChange={this.handlePrivate} />   
+                            <input type="radio" value="Yes" onClick={this.handlePrivate}/>
+                            <input type="radio" value="No" onClick={this.handlePrivate}/>
                         </div>
                     </div>
                     </section>
