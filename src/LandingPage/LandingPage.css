@@ -1,0 +1,14 @@
+.route {
+    color: white;
+    background: rgb(75, 101, 122);
+    text-decoration: none;
+    font-size: larger;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.route:hover {
+    color: coral;
+    background: gray;
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
 import Course from '../Course/Course';
 import './ResultsList.css';
@@ -36,11 +35,7 @@ class ResultsList extends Component {
                     );
                 })}    
                 </div>
-                <div className="addcourse">
-                    <Link className="addcourse_link" to={'/add-course'}>
-                        Add Course
-                    </Link>
-                </div>      
+                   
             </div>
         );
     };

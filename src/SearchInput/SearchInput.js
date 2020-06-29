@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../config';
+import { Link } from 'react-router-dom';
 import CourseContext from '../CourseContext';
 import './SearchInput.css';
 
@@ -42,7 +43,11 @@ class SearchInput extends Component {
                     className="Search__button"
                 />
                 </form>     
-                    
+                <div className="addcourse">
+                    <Link className="addcourse_link" to={'/add-course'}>
+                        Add A New Course
+                    </Link>
+                </div>      
             </div>
         );
     };

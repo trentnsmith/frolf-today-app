@@ -12,6 +12,8 @@ input:focus {
 
 .Search__button:hover {
     cursor: pointer;
+    color: coral;
+    background: gray;
 }
 
 .Search__input {
@@ -20,4 +22,24 @@ input:focus {
     margin-bottom: 10px;
     text-align: center;
     font-size: large;
+}
+
+.addcourse {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.addcourse_link {
+    color: white;
+    background: rgb(75, 101, 122);
+    text-decoration: none;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+    
+.addcourse_link:hover {
+    color: coral;
+    background: gray;
 }

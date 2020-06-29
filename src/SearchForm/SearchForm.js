@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SearchForm.css';
 import SearchInput from '../SearchInput/SearchInput';
+import { Link } from 'react-router-dom';
 
 class SearchForm extends Component {
     render() {
@@ -18,6 +19,7 @@ class SearchForm extends Component {
                     handleUpdate={this.props.handleUpdate}/>
                     
                 </div>
+                 
             </div>
         );
     };
