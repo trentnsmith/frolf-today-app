@@ -6,6 +6,7 @@ import CourseDetailPage from '../CourseDetailPage/CourseDetailPage';
 import MainPage from '../MainPage/MainPage';
 import './App.css'
 import AddCourse from '../AddCourse/AddCourse';
+import LandingPage from '../LandingPage/Landingpage';
 
 
 class App extends Component {
@@ -55,7 +56,8 @@ class App extends Component {
         <main className='App'>
           <Nav />
           <BrowserRouter className="flex-container">
-            <Route exact path ='/' render={() => 
+            <Route exact path='/' component={LandingPage} />
+            <Route path ='/search-page' render={() => 
               <MainPage 
                 setCourses={this.setCourses}
                 searchZip={this.state.searchZip}

@@ -327,7 +327,7 @@ class AddCourse extends Component {
                 </form>
             </div>
             <div className="goback_section">
-                        <Link className="goback_link" to='/'>
+                        <Link className="goback_link" to='/search-page'>
                             Go Back
                         </Link>
             </div>

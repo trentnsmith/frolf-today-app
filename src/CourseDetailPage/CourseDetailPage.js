@@ -53,7 +53,7 @@ class CourseDetailPage extends Component {
                     </div>
                 </div>
                 <div className="goback">
-                    <Link  className="goback__link" to='/'>
+                    <Link  className="goback__link" to='/search-page'>
                         Back to Results
                     </Link>
                 </div>
