@@ -146,7 +146,7 @@ class AddCourse extends Component {
             holes: this.state.holes.value,
             zipcode: this.state.zipcode.value,
             city: this.state.city.value,
-            state_name: 'Nebraska',
+            state_name: this.state.state_name.value,
             basket_types: this.state.basket_types.value,
             tee_types: this.state.tee_types.value,
             description: this.state.description.value,
@@ -198,6 +198,16 @@ class AddCourse extends Component {
         }
     };
 
+    validateStateName = () => {
+        let state_name = this.state.state_name.value.trim();
+        if (!this.state.state_name.touched) {
+            return
+        }
+        if (state_name !== 'Nebraska') {
+            return 'Must be in the state of Nebraska'
+        }
+    };
+
 
     render () {
         return (
@@ -237,7 +247,8 @@ class AddCourse extends Component {
                             State
                         </label>
                         <div>
-                            <input className="state_input" type="text" value="Nebraska" onChange={this.handleStateName}/>
+                            <input className="state_input" type="text" onChange={this.handleStateName} />
+                            <ValidationError message={this.validateStateName} />
                         </div>
                     </div>
                     <div>
@@ -304,7 +315,8 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <select className="tee_input" type="text" onChange={this.handleTees}>
-                                <option selectedvalue='grass'>Grass</option>
+                                <option value={null} selected></option>
+                                <option value='grass'>Grass</option>
                                 <option value='cement'>Cement</option>
                                 <option value='dirt'>Dirt</option>
                             </select>
@@ -315,8 +327,11 @@ class AddCourse extends Component {
                             Private Course
                         </label>
                         <div>
-                            <input type="radio" value="Yes" onClick={this.handlePrivate}/>
-                            <input type="radio" value="No" onClick={this.handlePrivate}/>
+                            <select type="text" onChange={this.handlePrivate}>
+                                <option value={null} selected></option>
+                                <option value='yes'>Yes</option>
+                                <option value='no'>No</option>
+                            </select>   
                         </div>
                     </div>
                     </section>
