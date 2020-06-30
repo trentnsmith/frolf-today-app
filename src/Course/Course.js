@@ -50,7 +50,7 @@ class Course extends Component {
                     </div>
                 </div>
                 <button
-                    className="course-delete"
+                    className="course_delete"
                     onClick={this.handleDeleteCourse}
                 >
                     Remove    

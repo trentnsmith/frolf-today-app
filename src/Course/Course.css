@@ -18,3 +18,17 @@
 .Course__link {
     color: white ;
 }
+
+.course_delete {
+    color: white;
+    background: rgb(75, 101, 122);
+    text-decoration: none;
+    border: 1px black solid;
+    border-radius: 10px;
+    padding: 5px;
+}
+    
+.course_delete:hover {
+    color: coral;
+    background: gray;
+}
