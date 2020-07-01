@@ -24,7 +24,7 @@ class AddCourse extends Component {
             touched: false
         },
         state_name: {
-            value: '',
+            value: 'Nebraska',
             touched: false
         },
         basket_types: {
@@ -87,11 +87,7 @@ class AddCourse extends Component {
         city.value = e.target.value
         this.setState({city})
     };
-    handleStateName = (e) => {
-        let {state_name} = this.state
-        state_name.value = e.target.value
-        this.setState({state_name})
-    };
+    
     handleBaskets = (e) => {
         let {basket_types} = this.state
         basket_types.value = e.target.value
@@ -247,8 +243,7 @@ class AddCourse extends Component {
                             State
                         </label>
                         <div>
-                            <input className="state_input" type="text" onChange={this.handleStateName} />
-                            <ValidationError message={this.validateStateName} />
+                            <input className="state_input" type="text" value="Nebraska"/>
                         </div>
                     </div>
                     <div>
