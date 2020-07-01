@@ -5,6 +5,7 @@
     background-color: rgb(67, 105, 67);
     margin: 2px 2px;
     color: white;
+    width: 90%;
 }
 
 .Course__content {
@@ -12,7 +13,7 @@
 }
 
 .Course__name:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
 }
 
 .Course__link {
@@ -31,4 +32,10 @@
 .course_delete:hover {
     color: coral;
     background: gray;
+}
+
+@media only screen and (min-width: 760px) {
+    .Course {
+        width: 90%;
+    }
 }

@@ -4,6 +4,8 @@
     overflow-y: scroll;
     -ms-overflow-style: none;
     display: inline-block;
+    align-items: center;
+    width: 100%;
 }
 
 .ResultsList::-webkit-scrollbar {
