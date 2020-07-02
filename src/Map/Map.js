@@ -18,8 +18,8 @@ function DisplayMap(props) {
     //using courseContext to change the location of where the map zooms, based on
     //the user's input and the results
     if (coursesContext.courses && coursesContext.courses.length) {
-        center = ({lat: parseFloat(coursesContext.courses[0].latitude), lng:  parseFloat(coursesContext.courses[0].longitude) })
-        zoom = 8
+        center = ({lat: parseFloat(coursesContext.courses[0].latitude), lng:  parseFloat(coursesContext.courses[0].longitude) });
+        zoom = 8;
     };
 
     return (

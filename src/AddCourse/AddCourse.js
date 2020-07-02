@@ -68,70 +68,70 @@ class AddCourse extends Component {
     static contextType = CourseContext;
 
     handleCourseName = (e) => {
-        let {course_name} = this.state
-        course_name.value = e.target.value
-        this.setState({course_name})
+        let {course_name} = this.state;
+        course_name.value = e.target.value;
+        this.setState({course_name});
     };
     handleHoles = (e) => {
-        let {holes} = this.state
-        holes.value = e.target.value
-        this.setState({holes})
+        let {holes} = this.state;
+        holes.value = e.target.value;
+        this.setState({holes});
     };
     handleZipcode = (e) => {
-        let {zipcode} = this.state
-        zipcode.value = e.target.value
-        this.setState({zipcode})
+        let {zipcode} = this.state;
+        zipcode.value = e.target.value;
+        this.setState({zipcode});
     };
     handleCity = (e) => {
-        let {city} = this.state
-        city.value = e.target.value
-        this.setState({city})
+        let {city} = this.state;
+        city.value = e.target.value;
+        this.setState({city});
     };
     
     handleBaskets = (e) => {
-        let {basket_types} = this.state
-        basket_types.value = e.target.value
-        this.setState({basket_types})
+        let {basket_types} = this.state;
+        basket_types.value = e.target.value;
+        this.setState({basket_types});
     };
     handleTees = (e) => {
-        let {tee_types} = this.state
-        tee_types.value = e.target.value
-        this.setState({tee_types})
+        let {tee_types} = this.state;
+        tee_types.value = e.target.value;
+        this.setState({tee_types});
     };
     handleDescription = (e) => {
-        let {description} = this.state
-        description.value = e.target.value
-        this.setState({description})
+        let {description} = this.state;
+        description.value = e.target.value;
+        this.setState({description});
     };
     handlePrivate = (e) => {
-        let {private_course} = this.state
-        private_course.value = e.target.value
-        this.setState({private_course})
+        let {private_course} = this.state;
+        private_course.value = e.target.value;
+        this.setState({private_course});
     };
     handleLatitude = (e) => {
-        let {latitude} = this.state
-        latitude.value = e.target.value
-        this.setState({latitude})
+        let {latitude} = this.state;
+        latitude.value = e.target.value;
+        this.setState({latitude});
     };
     handleLongitude = (e) => {
-        let {longitude} = this.state
-        longitude.value = e.target.value
-        this.setState({longitude})
+        let {longitude} = this.state;
+        longitude.value = e.target.value;
+        this.setState({longitude});
     };
     handleWebsiteTitle = (e) => {
-        let {website_title} = this.state
-        website_title.value = e.target.value
-        this.setState({website_title})
+        let {website_title} = this.state;
+        website_title.value = e.target.value;
+        this.setState({website_title});
     };
     handleWebsiteUrl = (e) => {
-        let {website_url} = this.state
-        website_url.value = e.target.value
-        this.setState({website_url})
+        let {website_url} = this.state;
+        website_url.value = e.target.value;
+        this.setState({website_url});
     };
     handleLength = (e) => {
-        let {course_length} = this.state
-        course_length.value = e.target.value
-        this.setState({course_length})
+        let {course_length} = this.state;
+        course_length.value = e.target.value;
+        this.setState({course_length});
     };
     
     
@@ -168,40 +168,40 @@ class AddCourse extends Component {
             })
             .catch((error) => {
                 console.log(error)
-            })        
+            });      
         } else {
             alert('Please enter something')
-        }
+        };
     };
 
     validateName = () => {
         let name = this.state.course_name.value.trim();
         if (!this.state.course_name.touched) {
             return
-        }
+        };
         if (name.length === 0) {
             return 'Course name is required';
-        }
+        };
     };
 
     validateZipcode = () => {
         let zip = this.state.zipcode.value.trim();
         if (!this.state.zipcode.touched) {
             return
-        }
+        };
         if (zip.length < 5) {
             return 'Zipcode must be 5 digits'
-        }
+        };
     };
 
     validateStateName = () => {
         let state_name = this.state.state_name.value.trim();
         if (!this.state.state_name.touched) {
             return
-        }
+        };
         if (state_name !== 'Nebraska') {
             return 'Must be in the state of Nebraska'
-        }
+        };
     };
 
 

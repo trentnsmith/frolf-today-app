@@ -15,7 +15,7 @@ class CourseDetailPage extends Component {
             return course.id === parseInt(this.props.match.params.courseId)
         });
         
-        let course = filteredCourse[0] || {}   
+        let course = filteredCourse[0] || {}; 
 
         return (
             //Displaying decriptive data for the selected course

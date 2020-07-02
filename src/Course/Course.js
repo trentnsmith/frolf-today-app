@@ -9,8 +9,6 @@ class Course extends Component {
     
 
     handleDeleteCourse = () => {
-        console.log('this.props.id', this.props.id)
-        console.log('courses', CourseContext.courses)
         fetch(`${config.API_ENDPOINT}/courses/${this.props.id}`, {
             method: 'DELETE',
             headers: {
@@ -26,7 +24,7 @@ class Course extends Component {
         })
         .catch(error => {
             alert(error.message)
-        })
+        });
     };
 
     render () {

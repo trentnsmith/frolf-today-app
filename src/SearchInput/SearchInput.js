@@ -21,7 +21,6 @@ class SearchInput extends Component {
             this.props.setCourses(data) 
         })
         .catch(console.error)
-        
     };
 
     render () {
