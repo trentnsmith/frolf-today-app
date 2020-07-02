@@ -19,7 +19,7 @@ Mainpage. This page allows the user to enter a zipcode to search for courses:
 Results. After a user submits a zipcode, results are listed. The user can click on a specific course to get more information, and the
 user can view the location of the courses on the map:
 
-![frolf_today_search_results_large](https://user-images.githubusercontent.com/58092710/84978941-cfea4600-b0f3-11ea-88f7-b354ed97fa16.JPG)
+![image](https://user-images.githubusercontent.com/58092710/86302750-4779a400-bbcf-11ea-9a25-7fc6862d151c.png)
 
 Add Course: The user has the ability to add a new course to the database. 
 
