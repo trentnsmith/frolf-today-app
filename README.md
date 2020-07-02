@@ -28,7 +28,7 @@ Add Course: The user has the ability to add a new course to the database.
 Course's Detail Page. After a user clicks on a course to find out more information, they are shown additional information about
 the selected course. The user can click on the link to go to the course's website, or go back to the results page:
 
-![frolf_today_course_detail](https://user-images.githubusercontent.com/58092710/84978965-dd9fcb80-b0f3-11ea-9c83-46e03947ad50.JPG)
+![image](https://user-images.githubusercontent.com/58092710/86302788-6ed07100-bbcf-11ea-83a3-887f6cfed920.png)
 
 ## Technology Used
 
