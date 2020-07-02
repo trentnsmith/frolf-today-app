@@ -12,6 +12,8 @@ https://github.com/trentnsmith/frolf-today-app-api
 
 Landing Page:
 
+![image](https://user-images.githubusercontent.com/58092710/86302830-945d7a80-bbcf-11ea-8ae9-0a46d45f2bb3.png)
+
 Mainpage. This page allows the user to enter a zipcode to search for courses:
 
 ![image](https://user-images.githubusercontent.com/58092710/86085517-f64da100-ba64-11ea-941b-069604f48993.png)
