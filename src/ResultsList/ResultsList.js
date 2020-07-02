@@ -19,9 +19,10 @@ class ResultsList extends Component {
             //mapping over the filterCourse and passing the information to 
             //the Course component
             <div>
-                <div className="ResultsList">
+                <ul className="ResultsList">
                     {filteredCourses.map(course => {
                         return (
+                        <li>
                         <Course
                             searchZip={this.props.searchZip}
                             id={course.id}
@@ -32,9 +33,10 @@ class ResultsList extends Component {
                             zip={course.postal_code}
                             city={course.city}
                     />
+                    </li>
                     );
                 })}    
-                </div>
+                </ul>
                    
             </div>
         );
