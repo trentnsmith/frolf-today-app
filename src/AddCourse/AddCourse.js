@@ -411,7 +411,7 @@ class AddCourse extends Component {
                             type="submit" 
                             value="Add Course" 
                             disabled={
-                                this.validateLat()
+                                !this.validateLat()
                         }
                     />
                     </div>
