@@ -197,6 +197,7 @@ class AddCourse extends Component {
         if (name.length < 3) {
             return 'Course name is required';
         };
+        return true
     };
 
     validateZipcode = () => {
@@ -207,6 +208,7 @@ class AddCourse extends Component {
         if (zip.length < 5 || zip.length > 5) {
             return 'Zipcode must be 5 digits'
         };
+        return true
     };
 
     validateCity = () => {
@@ -216,17 +218,19 @@ class AddCourse extends Component {
         };
         if (city.length < 3) {
             return "City must be at least 3 digits"
-        }
-    }
+        };
+        return true
+    };
 
     validateLat = () => {
         let lat = this.state.latitude.value.trim();
         if (!this.state.latitude.touched) {
             return
         };
-        if (lat.value !== Number) {
+        if (lat.length < 5) {
             return 'Latitude must be numeric';
         };
+        return true
     };
 
     validateLong = () => {
@@ -234,9 +238,10 @@ class AddCourse extends Component {
         if (!this.state.longitude.touched) {
             return
         };
-        if (long.value !== Number) {
+        if (long.length < 5) {
             return 'Longitude must be numeric';
         };
+        return true
     };
 
     validateLength = () => {
@@ -244,9 +249,10 @@ class AddCourse extends Component {
         if (!this.state.course_length.touched) {
             return
         };
-        if (courselength.length !== Number) {
+        if (courselength.length < 5) {
             return "Course Length must be a number"
         };
+        return true
     };
 
     validateHoles = () => {
@@ -254,9 +260,10 @@ class AddCourse extends Component {
         if (!this.state.holes.touched) {
             return
         };
-        if (holes.length !== Number) {
+        if (holes.length < 5) {
             return "Holes must be a number"
         };
+        return true
     };
 
 
@@ -347,7 +354,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="latitude _input" type="text" onChange={this.handleLength} />
-                            <ValidationError message={this.validateLength} />
+                            <ValidationError message={this.validateLength()} />
                         </div>
                     </div>
                     <div>
@@ -356,7 +363,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="holes_input" type="text" onChange={this.handleHoles} />
-                            <ValidationError message={this.handleHoles} />
+                            <ValidationError message={this.validateHoles()} />
                         </div>
                     </div>
                     <div>
