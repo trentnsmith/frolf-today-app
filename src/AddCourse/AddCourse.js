@@ -63,6 +63,7 @@ class AddCourse extends Component {
             value: '',
             touched: false
         },
+        courseNameError: '',
     };
 
     static contextType = CourseContext;
@@ -152,8 +153,16 @@ class AddCourse extends Component {
             website_title: this.state.website_title.value,
             website_url: this.state.website_url.value,
             course_length: this.state.course_length.value
-        };
-        if (this.state.course_name) {
+        }
+        if  (
+            this.validateName() === true &&
+            this.validateZipcode() === true &&
+            this.validateCity() === true &&
+            this.validateLat() === true &&
+            this.validateLong() === true &&
+            this.validateHoles() === true &&
+            this.validateLength() === true 
+            ) {
             fetch(`${config.API_ENDPOINT}/courses`, 
                 {   method: 'POST',
                     headers: {'content-type': 'application/json'},
@@ -170,7 +179,13 @@ class AddCourse extends Component {
                 console.log(error)
             });      
         } else {
-            alert('Please enter something')
+            this.state.course_name.touched = true
+            this.state.zipcode.touched = true
+            this.state.city.touched = true
+            this.state.latitude.touched = true
+            this.state.longitude.touched = true
+            this.state.holes.touched = true
+            this.state.course_length.touched = true
         };
     };
 
@@ -179,7 +194,7 @@ class AddCourse extends Component {
         if (!this.state.course_name.touched) {
             return
         };
-        if (name.length === 0) {
+        if (name.length < 3) {
             return 'Course name is required';
         };
     };
@@ -189,20 +204,61 @@ class AddCourse extends Component {
         if (!this.state.zipcode.touched) {
             return
         };
-        if (zip.length < 5) {
+        if (zip.length < 5 || zip.length > 5) {
             return 'Zipcode must be 5 digits'
         };
     };
 
-    validateStateName = () => {
-        let state_name = this.state.state_name.value.trim();
-        if (!this.state.state_name.touched) {
+    validateCity = () => {
+        let city = this.state.city.value.trim();
+        if (!this.state.city.touched) {
             return
         };
-        if (state_name !== 'Nebraska') {
-            return 'Must be in the state of Nebraska'
+        if (city.length < 3) {
+            return "City must be at least 3 digits"
+        }
+    }
+
+    validateLat = () => {
+        let lat = this.state.latitude.value.trim();
+        if (!this.state.latitude.touched) {
+            return
+        };
+        if (lat.value !== Number) {
+            return 'Latitude must be numeric';
         };
     };
+
+    validateLong = () => {
+        let long = this.state.longitude.value.trim();
+        if (!this.state.longitude.touched) {
+            return
+        };
+        if (long.value !== Number) {
+            return 'Longitude must be numeric';
+        };
+    };
+
+    validateLength = () => {
+        let courselength = this.state.course_length.value.trim();
+        if (!this.state.course_length.touched) {
+            return
+        };
+        if (courselength.length !== Number) {
+            return "Course Length must be a number"
+        };
+    };
+
+    validateHoles = () => {
+        let holes = this.state.holes.value.trim();
+        if (!this.state.holes.touched) {
+            return
+        };
+        if (holes.length !== Number) {
+            return "Holes must be a number"
+        };
+    };
+
 
 
     render () {
@@ -217,8 +273,9 @@ class AddCourse extends Component {
                             Course Name
                         </label>
                         <div>
-                            <input className="name_input" type="text" onChange={this.handleCourseName} required />
-                            <ValidationError message={this.validateName()} />
+                            <input className="name_input" type="text" onChange={this.handleCourseName}  />
+                            
+                            <ValidationError message={this.validateName()}/>
                         </div>
                     </div>
                     <div className="location_section">
@@ -226,7 +283,7 @@ class AddCourse extends Component {
                             Zipcode
                         </label>
                         <div>
-                            <input className="zipcode_input" type="text" onChange={this.handleZipcode} required />
+                            <input className="zipcode_input" type="text" onChange={this.handleZipcode}  />
                             <ValidationError message={this.validateZipcode()} />
                         </div>
                     </div>
@@ -236,6 +293,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="city_input" type="text" onChange={this.handleCity} />
+                            <ValidationError message={this.validateCity()} />
                         </div>
                     </div>
                     <div>
@@ -252,6 +310,8 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="latitude _input" type="text" onChange={this.handleLatitude} />
+                            <ValidationError message={this.validateLat()} />
+                            
                         </div>
                     </div>
                     <div>
@@ -260,6 +320,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="longitude _input" type="text" onChange={this.handleLongitude} />
+                            <ValidationError message={this.validateLong()} />
                         </div>
                     </div>
                     </section>
@@ -286,14 +347,16 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="latitude _input" type="text" onChange={this.handleLength} />
+                            <ValidationError message={this.validateLength} />
                         </div>
                     </div>
                     <div>
                         <label className="details_holes">
-                            Holes
+                            # of Holes
                         </label>
                         <div>
                             <input className="holes_input" type="text" onChange={this.handleHoles} />
+                            <ValidationError message={this.handleHoles} />
                         </div>
                     </div>
                     <div>
@@ -336,7 +399,14 @@ class AddCourse extends Component {
                     </div>
 
                     <div className="submit_section">
-                        <input className="form_submit" type="submit" value="Add Course" />
+                        <input 
+                            className="form_submit" 
+                            type="submit" 
+                            value="Add Course" 
+                            disabled={
+                                this.validateLat()
+                        }
+                    />
                     </div>
                     </section>
                 </form>
