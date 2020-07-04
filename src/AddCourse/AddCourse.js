@@ -155,13 +155,13 @@ class AddCourse extends Component {
             course_length: this.state.course_length.value
         }
         if  (
-            this.validateName() === true &&
-            this.validateZipcode() === true &&
-            this.validateCity() === true &&
-            this.validateLat() === true &&
-            this.validateLong() === true &&
-            this.validateHoles() === true &&
-            this.validateLength() === true 
+            this.validateName() === undefined &&
+            this.validateZipcode() === undefined &&
+            this.validateCity() === undefined &&
+            this.validateLat() === undefined &&
+            this.validateLong() === undefined &&
+            this.validateHoles() === undefined &&
+            this.validateLength() === undefined 
             ) {
             fetch(`${config.API_ENDPOINT}/courses`, 
                 {   method: 'POST',
@@ -192,7 +192,7 @@ class AddCourse extends Component {
     validateName = () => {
         let name = this.state.course_name.value.trim();
         if (!this.state.course_name.touched) {
-            return true
+            return 
         };
         if (name.length < 3) {
             return 'Course name is required';
@@ -203,7 +203,7 @@ class AddCourse extends Component {
     validateZipcode = () => {
         let zip = this.state.zipcode.value.trim();
         if (!this.state.zipcode.touched) {
-            return true
+            return 
         };
         if (zip.length < 5 || zip.length > 5) {
             return 'Zipcode must be 5 digits'
@@ -214,18 +214,18 @@ class AddCourse extends Component {
     validateCity = () => {
         let city = this.state.city.value.trim();
         if (!this.state.city.touched) {
-            return true
+            return 
         };
         if (city.length < 3) {
             return "City must be at least 3 digits"
         };
-        return true
+        return 
     };
 
     validateLat = () => {
         let lat = this.state.latitude.value.trim();
         if (!this.state.latitude.touched) {
-            return true
+            return 
         };
         if (lat.length < 5) {
             return 'Latitude must be numeric';
@@ -236,7 +236,7 @@ class AddCourse extends Component {
     validateLong = () => {
         let long = this.state.longitude.value.trim();
         if (!this.state.longitude.touched) {
-            return true
+            return 
         };
         if (long.length < 5) {
             return 'Longitude must be numeric';
@@ -247,7 +247,7 @@ class AddCourse extends Component {
     validateLength = () => {
         let courselength = this.state.course_length.value.trim();
         if (!this.state.course_length.touched) {
-            return true
+            return 
         };
         if (courselength.length < 5) {
             return "Course Length must be a number"
@@ -258,7 +258,7 @@ class AddCourse extends Component {
     validateHoles = () => {
         let holes = this.state.holes.value.trim();
         if (!this.state.holes.touched) {
-            return true
+            return 
         };
         if (holes.length < 5) {
             return "Holes must be a number"
@@ -412,7 +412,7 @@ class AddCourse extends Component {
                             value="Add Course" 
                             disabled={
                                 !this.validateLat()
-                        }
+                            }
                     />
                     </div>
                     </section>
