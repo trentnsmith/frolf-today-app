@@ -71,67 +71,91 @@ class AddCourse extends Component {
     handleCourseName = (e) => {
         let {course_name} = this.state;
         course_name.value = e.target.value;
+        course_name.touched = true;
         this.setState({course_name});
     };
     handleHoles = (e) => {
         let {holes} = this.state;
         holes.value = e.target.value;
+        holes.touched = true;
         this.setState({holes});
     };
     handleZipcode = (e) => {
         let {zipcode} = this.state;
         zipcode.value = e.target.value;
+        zipcode.touched = true;
+
         this.setState({zipcode});
     };
     handleCity = (e) => {
         let {city} = this.state;
         city.value = e.target.value;
+        city.touched = true;
+
         this.setState({city});
     };
     
     handleBaskets = (e) => {
         let {basket_types} = this.state;
         basket_types.value = e.target.value;
+        basket_types.touched = true;
+
         this.setState({basket_types});
     };
     handleTees = (e) => {
         let {tee_types} = this.state;
         tee_types.value = e.target.value;
+        tee_types.touched = true;
+
         this.setState({tee_types});
     };
     handleDescription = (e) => {
         let {description} = this.state;
         description.value = e.target.value;
+        description.touched = true;
+
         this.setState({description});
     };
     handlePrivate = (e) => {
         let {private_course} = this.state;
         private_course.value = e.target.value;
+        private_course.touched = true;
+
         this.setState({private_course});
     };
     handleLatitude = (e) => {
         let {latitude} = this.state;
         latitude.value = e.target.value;
+        latitude.touched = true;
+
         this.setState({latitude});
     };
     handleLongitude = (e) => {
         let {longitude} = this.state;
         longitude.value = e.target.value;
+        longitude.touched = true;
+
         this.setState({longitude});
     };
     handleWebsiteTitle = (e) => {
         let {website_title} = this.state;
         website_title.value = e.target.value;
+        website_title.touched = true;
+
         this.setState({website_title});
     };
     handleWebsiteUrl = (e) => {
         let {website_url} = this.state;
         website_url.value = e.target.value;
+        website_url.touched = true;
+
         this.setState({website_url});
     };
     handleLength = (e) => {
         let {course_length} = this.state;
         course_length.value = e.target.value;
+        course_length.touched = true;
+
         this.setState({course_length});
     };
     
@@ -155,13 +179,13 @@ class AddCourse extends Component {
             course_length: this.state.course_length.value
         }
         if  (
-            this.validateName() === undefined &&
-            this.validateZipcode() === undefined &&
-            this.validateCity() === undefined &&
-            this.validateLat() === undefined &&
-            this.validateLong() === undefined &&
-            this.validateHoles() === undefined &&
-            this.validateLength() === undefined 
+            this.validateName()  &&
+            this.validateZipcode()   &&
+            this.validateCity()  &&
+            this.validateLat()   &&
+            this.validateLong()   &&
+            this.validateHoles()   &&
+            this.validateLength()   
             ) {
             fetch(`${config.API_ENDPOINT}/courses`, 
                 {   method: 'POST',
@@ -179,20 +203,14 @@ class AddCourse extends Component {
                 console.log(error)
             });      
         } else {
-            this.state.course_name.touched = true
-            this.state.zipcode.touched = true
-            this.state.city.touched = true
-            this.state.latitude.touched = true
-            this.state.longitude.touched = true
-            this.state.holes.touched = true
-            this.state.course_length.touched = true
+            console.log('something went wrong')
         };
     };
 
     validateName = () => {
         let name = this.state.course_name.value.trim();
         if (!this.state.course_name.touched) {
-            return 
+            return false
         };
         if (name.length < 3) {
             return 'Course name is required';
@@ -203,7 +221,7 @@ class AddCourse extends Component {
     validateZipcode = () => {
         let zip = this.state.zipcode.value.trim();
         if (!this.state.zipcode.touched) {
-            return 
+            return false
         };
         if (zip.length < 5 || zip.length > 5) {
             return 'Zipcode must be 5 digits'
@@ -214,7 +232,7 @@ class AddCourse extends Component {
     validateCity = () => {
         let city = this.state.city.value.trim();
         if (!this.state.city.touched) {
-            return 
+            return false
         };
         if (city.length < 3) {
             return "City must be at least 3 digits"
@@ -225,7 +243,7 @@ class AddCourse extends Component {
     validateLat = () => {
         let lat = this.state.latitude.value.trim();
         if (!this.state.latitude.touched) {
-            return 
+            return false
         };
         if (lat.length < 5) {
             return 'Latitude must be numeric';
@@ -236,7 +254,7 @@ class AddCourse extends Component {
     validateLong = () => {
         let long = this.state.longitude.value.trim();
         if (!this.state.longitude.touched) {
-            return 
+            return false
         };
         if (long.length < 5) {
             return 'Longitude must be numeric';
@@ -247,7 +265,7 @@ class AddCourse extends Component {
     validateLength = () => {
         let courselength = this.state.course_length.value.trim();
         if (!this.state.course_length.touched) {
-            return 
+            return false
         };
         if (courselength.length < 5) {
             return "Course Length must be a number"
@@ -258,7 +276,7 @@ class AddCourse extends Component {
     validateHoles = () => {
         let holes = this.state.holes.value.trim();
         if (!this.state.holes.touched) {
-            return 
+            return false
         };
         if (holes.length < 5) {
             return "Holes must be a number"
