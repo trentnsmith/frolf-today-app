@@ -179,13 +179,13 @@ class AddCourse extends Component {
             course_length: this.state.course_length.value
         }
         if  (
-            this.validateName()  &&
-            this.validateZipcode()   &&
-            this.validateCity()  &&
-            this.validateLat()   &&
-            this.validateLong()   &&
-            this.validateHoles()   &&
-            this.validateLength()   
+            this.validateName() === true &&
+            this.validateZipcode() === true  &&
+            this.validateCity() === true &&
+            this.validateLat() === true  &&
+            this.validateLong() === true  &&
+            this.validateHoles() === true  &&
+            this.validateLength() === true  
             ) {
             fetch(`${config.API_ENDPOINT}/courses`, 
                 {   method: 'POST',
@@ -204,12 +204,14 @@ class AddCourse extends Component {
             });      
         } else {
             console.log('something went wrong')
+            
         };
     };
 
     validateName = () => {
         let name = this.state.course_name.value.trim();
         if (!this.state.course_name.touched) {
+            console.log("returned false in name function")
             return false
         };
         if (name.length < 3) {
@@ -221,6 +223,7 @@ class AddCourse extends Component {
     validateZipcode = () => {
         let zip = this.state.zipcode.value.trim();
         if (!this.state.zipcode.touched) {
+            console.log("returned false in zip function")
             return false
         };
         if (zip.length < 5 || zip.length > 5) {
@@ -232,6 +235,7 @@ class AddCourse extends Component {
     validateCity = () => {
         let city = this.state.city.value.trim();
         if (!this.state.city.touched) {
+            console.log("returned false in city function")
             return false
         };
         if (city.length < 3) {
@@ -243,6 +247,7 @@ class AddCourse extends Component {
     validateLat = () => {
         let lat = this.state.latitude.value.trim();
         if (!this.state.latitude.touched) {
+            console.log("returned false in lat function")
             return false
         };
         if (lat.length < 5) {
@@ -254,6 +259,7 @@ class AddCourse extends Component {
     validateLong = () => {
         let long = this.state.longitude.value.trim();
         if (!this.state.longitude.touched) {
+            console.log("returned false in long function")
             return false
         };
         if (long.length < 5) {
@@ -265,6 +271,7 @@ class AddCourse extends Component {
     validateLength = () => {
         let courselength = this.state.course_length.value.trim();
         if (!this.state.course_length.touched) {
+            console.log("returned false in length function")
             return false
         };
         if (courselength.length < 5) {
@@ -275,6 +282,7 @@ class AddCourse extends Component {
 
     validateHoles = () => {
         let holes = this.state.holes.value.trim();
+        console.log("returned false in holes function")
         if (!this.state.holes.touched) {
             return false
         };
