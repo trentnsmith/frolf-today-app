@@ -162,8 +162,6 @@ class AddCourse extends Component {
     
     handleFormSubmit = (e) => {
         e.preventDefault();
-        const funcNames = ["Name", "Zipcode", "City", "Lat", "Long", "Holes", "Length"];
-        funcNames.forEach(funcName => console.log(funcName, this[`validate${funcName}`]()))
         let newCourse = {
             course_name: this.state.course_name.value,
             holes: this.state.holes.value,
@@ -197,7 +195,6 @@ class AddCourse extends Component {
                 return response.json();
             })
             .then((savedCourse) => {
-                console.log(savedCourse)
                 this.props.history.push('/search-page')
                 this.context.addCourse(savedCourse)
                 
