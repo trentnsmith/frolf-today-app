@@ -63,7 +63,6 @@ class AddCourse extends Component {
             value: '',
             touched: false
         },
-        courseNameError: '',
     };
 
     static contextType = CourseContext;
@@ -84,14 +83,12 @@ class AddCourse extends Component {
         let {zipcode} = this.state;
         zipcode.value = e.target.value;
         zipcode.touched = true;
-
         this.setState({zipcode});
     };
     handleCity = (e) => {
         let {city} = this.state;
         city.value = e.target.value;
         city.touched = true;
-
         this.setState({city});
     };
     
@@ -99,63 +96,54 @@ class AddCourse extends Component {
         let {basket_types} = this.state;
         basket_types.value = e.target.value;
         basket_types.touched = true;
-
         this.setState({basket_types});
     };
     handleTees = (e) => {
         let {tee_types} = this.state;
         tee_types.value = e.target.value;
         tee_types.touched = true;
-
         this.setState({tee_types});
     };
     handleDescription = (e) => {
         let {description} = this.state;
         description.value = e.target.value;
         description.touched = true;
-
         this.setState({description});
     };
     handlePrivate = (e) => {
         let {private_course} = this.state;
         private_course.value = e.target.value;
         private_course.touched = true;
-
         this.setState({private_course});
     };
     handleLatitude = (e) => {
         let {latitude} = this.state;
         latitude.value = e.target.value;
         latitude.touched = true;
-
         this.setState({latitude});
     };
     handleLongitude = (e) => {
         let {longitude} = this.state;
         longitude.value = e.target.value;
         longitude.touched = true;
-
         this.setState({longitude});
     };
     handleWebsiteTitle = (e) => {
         let {website_title} = this.state;
         website_title.value = e.target.value;
         website_title.touched = true;
-
         this.setState({website_title});
     };
     handleWebsiteUrl = (e) => {
         let {website_url} = this.state;
         website_url.value = e.target.value;
         website_url.touched = true;
-
         this.setState({website_url});
     };
     handleLength = (e) => {
         let {course_length} = this.state;
         course_length.value = e.target.value;
         course_length.touched = true;
-
         this.setState({course_length});
     };
     
@@ -177,7 +165,7 @@ class AddCourse extends Component {
             website_title: this.state.website_title.value,
             website_url: this.state.website_url.value,
             course_length: this.state.course_length.value
-        }
+        };
         if  (
             this.validateName() === true &&
             this.validateZipcode() === true  &&
@@ -195,97 +183,96 @@ class AddCourse extends Component {
                 return response.json();
             })
             .then((savedCourse) => {
-                this.props.history.push('/search-page')
-                this.context.addCourse(savedCourse)
+                this.props.history.push('/search-page');
+                this.context.addCourse(savedCourse);
                 
             })
             .catch((error) => {
-                console.log(error)
+                console.log(error);
             });      
         } else {
-            console.log('Validation is not met')
-            
+            console.log('Validation is not met');
         };
     };
 
     validateName = () => {
         let name = this.state.course_name.value.trim();
         if (!this.state.course_name.touched) {
-            return false
+            return false;
         };
         if (name.length < 3) {
             return 'Must be min 3 digits';
         };
-        return true
+        return true;
     };
 
     validateZipcode = () => {
         let zip = this.state.zipcode.value.trim();
         if (!this.state.zipcode.touched) {
-            return false
+            return false;
         };
         if (zip.length < 5 || zip.length > 5) {
-            return 'Must be 5 digits'
+            return 'Must be 5 digits';
         };
         if (isNaN(parseInt(zip))) {
-            return 'Must be a number'
+            return 'Must be a number';
         };
-        return true
+        return true;
     };
 
     validateCity = () => {
         let city = this.state.city.value.trim();
         if (!this.state.city.touched) {
-            return false
+            return false;
         };
         if (city.length < 3) {
-            return "Must be min 3 digits"
+            return "Must be min 3 digits";
         };
-        return true
+        return true;
     };
 
     validateLat = () => {
         let lat = this.state.latitude.value.trim();
         if (!this.state.latitude.touched) {
-            return false
+            return false;
         };
         if (isNaN(parseFloat(lat))) {
             return 'Must be numeric';
         };
-        return true
+        return true;
     };
 
     validateLong = () => {
         let long = this.state.longitude.value.trim();
         if (!this.state.longitude.touched) {
-            return false
+            return false;
         };
         if (isNaN(parseFloat(long))) {
             return 'Must be numeric';
         };
-        return true
+        return true;
     };
 
     validateLength = () => {
         let courselength = this.state.course_length.value.trim();
         if (!this.state.course_length.touched) {
-            return false
+            return false;
         };
         if (isNaN(parseInt(courselength))) {
-            return 'Must be a number'
+            return 'Must be a number';
         };
-        return true
+        return true;
     };
 
     validateHoles = () => {
         let holes = this.state.holes.value.trim();
         if (!this.state.holes.touched) {
-            return false
+            return false;
         };
         if (isNaN(parseInt(holes))) {
-            return 'Must be a number'
+            return 'Must be a number';
         };
-        return true
+        return true;
     };
 
 
