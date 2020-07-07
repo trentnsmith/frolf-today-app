@@ -162,6 +162,8 @@ class AddCourse extends Component {
     
     handleFormSubmit = (e) => {
         e.preventDefault();
+        const funcNames = ["Name", "Zipcode", "City", "Lat", "Long", "Holes", "Length"];
+        funcNames.forEach(funcName => console.log(funcName, this[`validate${funcName}`]()))
         let newCourse = {
             course_name: this.state.course_name.value,
             holes: this.state.holes.value,
@@ -195,6 +197,7 @@ class AddCourse extends Component {
                 return response.json();
             })
             .then((savedCourse) => {
+                console.log(savedCourse)
                 this.props.history.push('/search-page')
                 this.context.addCourse(savedCourse)
                 
@@ -203,7 +206,7 @@ class AddCourse extends Component {
                 console.log(error)
             });      
         } else {
-            console.log('something went wrong')
+            console.log('Validation is not met')
             
         };
     };
@@ -211,11 +214,10 @@ class AddCourse extends Component {
     validateName = () => {
         let name = this.state.course_name.value.trim();
         if (!this.state.course_name.touched) {
-            console.log("returned false in name function")
             return false
         };
         if (name.length < 3) {
-            return 'Course name is required';
+            return 'Must be min 3 digits';
         };
         return true
     };
@@ -223,11 +225,13 @@ class AddCourse extends Component {
     validateZipcode = () => {
         let zip = this.state.zipcode.value.trim();
         if (!this.state.zipcode.touched) {
-            console.log("returned false in zip function")
             return false
         };
         if (zip.length < 5 || zip.length > 5) {
-            return 'Zipcode must be 5 digits'
+            return 'Must be 5 digits'
+        };
+        if (isNaN(parseInt(zip))) {
+            return 'Must be a number'
         };
         return true
     };
@@ -235,23 +239,21 @@ class AddCourse extends Component {
     validateCity = () => {
         let city = this.state.city.value.trim();
         if (!this.state.city.touched) {
-            console.log("returned false in city function")
             return false
         };
         if (city.length < 3) {
-            return "City must be at least 3 digits"
+            return "Must be min 3 digits"
         };
-        return 
+        return true
     };
 
     validateLat = () => {
         let lat = this.state.latitude.value.trim();
         if (!this.state.latitude.touched) {
-            console.log("returned false in lat function")
             return false
         };
-        if (lat.length < 5) {
-            return 'Latitude must be numeric';
+        if (isNaN(parseFloat(lat))) {
+            return 'Must be numeric';
         };
         return true
     };
@@ -259,11 +261,10 @@ class AddCourse extends Component {
     validateLong = () => {
         let long = this.state.longitude.value.trim();
         if (!this.state.longitude.touched) {
-            console.log("returned false in long function")
             return false
         };
-        if (long.length < 5) {
-            return 'Longitude must be numeric';
+        if (isNaN(parseFloat(long))) {
+            return 'Must be numeric';
         };
         return true
     };
@@ -271,23 +272,21 @@ class AddCourse extends Component {
     validateLength = () => {
         let courselength = this.state.course_length.value.trim();
         if (!this.state.course_length.touched) {
-            console.log("returned false in length function")
             return false
         };
-        if (courselength.length < 5) {
-            return "Course Length must be a number"
+        if (isNaN(parseInt(courselength))) {
+            return 'Must be a number'
         };
         return true
     };
 
     validateHoles = () => {
         let holes = this.state.holes.value.trim();
-        console.log("returned false in holes function")
         if (!this.state.holes.touched) {
             return false
         };
-        if (holes.length < 5) {
-            return "Holes must be a number"
+        if (isNaN(parseInt(holes))) {
+            return 'Must be a number'
         };
         return true
     };
