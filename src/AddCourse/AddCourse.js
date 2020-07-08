@@ -150,6 +150,8 @@ class AddCourse extends Component {
     
     handleFormSubmit = (e) => {
         e.preventDefault();
+        const funcNames = ["Name", "Zipcode", "City", "Lat", "Long", "Tees", "Private", "Title", "Url", "Baskets", "Description", "Holes", "Length"];
+        funcNames.forEach(funcName => console.log(funcName, this[`validate${funcName}`]()))
         let newCourse = {
             course_name: this.state.course_name.value,
             holes: this.state.holes.value,
@@ -173,7 +175,7 @@ class AddCourse extends Component {
             this.validateLat() === true  &&
             this.validateLong() === true  &&
             this.validateHoles() === true  &&
-            this.validateLength() === true  
+            this.validateLength() === true 
             ) {
             fetch(`${config.API_ENDPOINT}/courses`, 
                 {   method: 'POST',
@@ -253,6 +255,28 @@ class AddCourse extends Component {
         return true;
     };
 
+    validateTitle = () => {
+        let title = this.state.website_title.value.trim();
+        if (!this.state.website_title.touched) {
+            return false;
+        };
+        if (title.length < 3) {
+            return "Must be min 3 digits";
+        };
+        return true;
+    };
+
+    validateUrl = () => {
+        let url = this.state.website_url.value.trim();
+        if (!this.state.website_url.touched) {
+            return false;
+        };
+        if (url.length < 3) {
+            return "Must be min 3 digits";
+        };
+        return true;
+    };
+
     validateLength = () => {
         let courselength = this.state.course_length.value.trim();
         if (!this.state.course_length.touched) {
@@ -271,6 +295,41 @@ class AddCourse extends Component {
         };
         if (isNaN(parseInt(holes))) {
             return 'Must be a number';
+        };
+        return true;
+    };
+
+    validateBaskets = () => {
+        let basket = this.state.basket_types.value.trim();
+        if (!this.state.basket_types.touched) {
+            return false;
+        };
+        if (basket.length < 3) {
+            return "Must be min 3 digits";
+        };
+        return true;
+    };
+
+    validateTees = () => {
+        let tees = this.state.tee_types.value.trim();
+        if (!this.state.tee_types.touched) {
+            return false;
+        };
+        return true;
+    };
+
+    validatePrivate = () => {
+        let privCourse = this.state.private_course.value.trim();
+        if (!this.state.private_course.touched) {
+            return false;
+        };
+        return true;
+    };
+
+    validateDescription = () => {
+        let description = this.state.description.value.trim();
+        if (!this.state.description.touched) {
+            return false;
         };
         return true;
     };
@@ -347,6 +406,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="website _input" type="text" onChange={this.handleWebsiteTitle} />
+                            <ValidationError message={this.validateTitle()} />
                         </div>
                     </div>
                     <div>
@@ -355,6 +415,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="website_input" type="text" onChange={this.handleWebsiteUrl} />
+                            <ValidationError message={this.validateUrl()} />
                         </div>
                     </div>
                     <div>
@@ -381,6 +442,7 @@ class AddCourse extends Component {
                         </label>
                         <div>
                             <input className="basket_input" type="text" onChange={this.handleBaskets} />
+                            <ValidationError message={this.validateBaskets()} />
                         </div>
                     </div>
                     <div>
@@ -388,7 +450,7 @@ class AddCourse extends Component {
                             Type of Tees
                         </label>
                         <div>
-                            <select className="tee_input" type="text" onChange={this.handleTees}>
+                            <select className="tee_input" type="text" onChange={this.handleTees} required>
                                 <option value={null} selected></option>
                                 <option value='grass'>Grass</option>
                                 <option value='cement'>Cement</option>
@@ -401,7 +463,7 @@ class AddCourse extends Component {
                             Private Course
                         </label>
                         <div>
-                            <select type="text" onChange={this.handlePrivate}>
+                            <select type="text" onChange={this.handlePrivate} required>
                                 <option value={null} selected></option>
                                 <option value='yes'>Yes</option>
                                 <option value='no'>No</option>
@@ -411,7 +473,7 @@ class AddCourse extends Component {
                     </section>
                     <section className="section">
                     <div className="description_section">
-                        <textarea onChange={this.handleDescription} placeholder="Description of the course..."/>
+                        <textarea onChange={this.handleDescription} placeholder="Description of the course..." required/>
                     </div>
 
                     <div className="submit_section">

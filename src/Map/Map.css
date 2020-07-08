@@ -1,6 +1,7 @@
 .map {
     width: 100%;
     height: 150%;
+    align-items: left;
 }   
 
 .loadingElement {
