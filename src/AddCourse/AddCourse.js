@@ -150,8 +150,6 @@ class AddCourse extends Component {
     
     handleFormSubmit = (e) => {
         e.preventDefault();
-        const funcNames = ["Name", "Zipcode", "City", "Lat", "Long", "Tees", "Private", "Title", "Url", "Baskets", "Description", "Holes", "Length"];
-        funcNames.forEach(funcName => console.log(funcName, this[`validate${funcName}`]()))
         let newCourse = {
             course_name: this.state.course_name.value,
             holes: this.state.holes.value,
